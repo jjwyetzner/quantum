@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -23,37 +22,14 @@ export default function Home() {
   ]
 
   const institutions = [
-    'Yale University',
-    'Stanford University',
-    'Harvard University',
-    'Princeton University',
-    'Cornell University',
-    'MIT',
-    'Brown University',
-    'Duke University',
-    'Northwestern University',
-    'Tufts University',
-    'Boston University',
-    'New York University',
-    'Columbia University',
-    'University of Toronto',
-    'University of Maryland',
-    'Purdue University',
-    'Texas A&M University',
-    'Arizona State University',
-    'Northeastern University',
-    'Vanderbilt University',
-    'Case Western Reserve University',
-    'Rensselaer Polytechnic Institute',
-    'University of Connecticut',
-    'University of Massachusetts',
-    'Rutgers University',
-    'Lehigh University',
-    'City University of New York',
-    'UCLA',
-    'UC Davis',
-    'UT Dallas',
-    'Warsaw University of Technology',
+    'Yale University', 'Stanford University', 'Harvard University', 'Princeton University',
+    'Cornell University', 'MIT', 'Brown University', 'Duke University', 'Northwestern University',
+    'Tufts University', 'Boston University', 'New York University', 'Columbia University',
+    'University of Toronto', 'University of Maryland', 'Purdue University', 'Texas A&M University',
+    'Arizona State University', 'Northeastern University', 'Vanderbilt University',
+    'Case Western Reserve University', 'Rensselaer Polytechnic Institute', 'University of Connecticut',
+    'University of Massachusetts', 'Rutgers University', 'Lehigh University',
+    'City University of New York', 'UCLA', 'UC Davis', 'UT Dallas', 'Warsaw University of Technology',
   ]
 
   return (
@@ -62,10 +38,7 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
-            <Link href="/" className="text-xl font-bold tracking-tight">
-              YQuantum
-            </Link>
-            
+            <Link href="/" className="text-xl font-bold tracking-tight">YQuantum</Link>
             <div className="hidden md:flex items-center gap-10">
               <Link href="/2025" className="text-sm text-white/60 hover:text-white transition-colors">YQUANTUM 2025</Link>
               <Link href="/2024" className="text-sm text-white/60 hover:text-white transition-colors">YQUANTUM 2024</Link>
@@ -73,11 +46,7 @@ export default function Home() {
               <Link href="/contact" className="text-sm text-white/60 hover:text-white transition-colors">CONTACT</Link>
               <Link href="/register" className="btn-primary">REGISTRATION</Link>
             </div>
-
-            <button 
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden text-white p-2"
-            >
+            <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden text-white p-2">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {menuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
@@ -88,7 +57,6 @@ export default function Home() {
             </button>
           </div>
         </div>
-
         {menuOpen && (
           <div className="md:hidden bg-black border-t border-white/10 px-6 py-8">
             <div className="flex flex-col gap-6">
@@ -108,12 +76,8 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.15] tracking-tight mb-8">
             <span className="text-white">YQuantum</span> is Yale&apos;s premier quantum computing hackathon.
           </h1>
-          <p className="text-3xl md:text-5xl font-bold text-white/90 mb-12">
-            Stay tuned for 2026!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/register" className="btn-primary">REGISTRATION</Link>
-          </div>
+          <p className="text-3xl md:text-5xl font-bold text-white/90 mb-12">Stay tuned for 2026!</p>
+          <Link href="/register" className="btn-primary">REGISTRATION</Link>
         </div>
       </section>
 
@@ -128,7 +92,7 @@ export default function Home() {
                 quantum engineering, quantum error correction, optics and photonics, superconducting qubits, 
                 and quantum cryptography.
               </p>
-              <p className="text-lg text-white/60 leading-relaxed mb-6">
+              <p className="text-lg text-white/60 leading-relaxed">
                 Major research advancements at YQI include the first superconducting device prototype, 
                 the first superconducting quantum processor, the first demonstrated quantum algorithm on a QPU, 
                 the first realization of photonic quantum circuits, and the longest superconducting coherence 
@@ -146,9 +110,7 @@ export default function Home() {
                 Program on quantum computers. Design the solutions of tomorrow. Advance quantum computation 
                 — or design novel quantum solutions to the world&apos;s hardest problems.
               </p>
-              <p className="text-xl text-white font-bold">
-                Why quantum? Because this is the future.
-              </p>
+              <p className="text-xl text-white font-bold">Why quantum? Because this is the future.</p>
             </div>
           </div>
         </div>
@@ -158,7 +120,6 @@ export default function Home() {
       <section className="py-32 px-6 lg:px-12 border-t border-white/10">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">Dual Challenge Tracks</h2>
-
           <div className="grid md:grid-cols-2 gap-8">
             <div className="p-10 border border-white/10">
               <h3 className="text-2xl font-bold italic mb-4">Advancement</h3>
@@ -169,7 +130,6 @@ export default function Home() {
                 to build the computers of tomorrow.
               </p>
             </div>
-
             <div className="p-10 border border-white/10">
               <h3 className="text-2xl font-bold italic mb-4">Application</h3>
               <p className="text-white/60 leading-relaxed">
@@ -194,14 +154,9 @@ export default function Home() {
       <section className="py-32 px-6 lg:px-12 border-t border-white/10">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">Institutions Represented</h2>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-2">
             {institutions.map((inst) => (
-              <span
-                key={inst}
-                className="px-4 py-2 border border-white/10 text-white/60 text-sm"
-              >
-                {inst}
-              </span>
+              <span key={inst} className="px-3 py-1.5 text-white/50 text-sm">{inst}</span>
             ))}
           </div>
         </div>
@@ -211,25 +166,17 @@ export default function Home() {
       <section className="py-32 px-6 lg:px-12 border-t border-white/10">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">2025 Sponsors</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-1">
             {sponsors2025.map((sponsor) => (
-              <div
-                key={sponsor.name}
-                className="aspect-[3/2] border border-white/10 bg-white flex items-center justify-center p-4"
-              >
+              <div key={sponsor.name} className="bg-white h-20 flex items-center justify-center px-3">
                 {sponsor.logo ? (
                   <img 
                     src={sponsor.logo} 
                     alt={sponsor.name}
-                    className="max-w-full max-h-full object-contain"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      target.parentElement!.innerHTML = `<span class="text-black/60 text-sm font-medium text-center">${sponsor.name}</span>`;
-                    }}
+                    className="h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all"
                   />
                 ) : (
-                  <span className="text-black/60 text-sm font-medium text-center">{sponsor.name}</span>
+                  <span className="text-black/70 text-xs font-semibold text-center leading-tight">{sponsor.name}</span>
                 )}
               </div>
             ))}
@@ -246,19 +193,15 @@ export default function Home() {
 
       {/* Stay tuned marquee */}
       <section className="py-16 border-t border-white/10 overflow-hidden">
-        <div className="whitespace-nowrap">
-          <span className="inline-block text-4xl md:text-6xl font-bold text-white/10">
-            Stay tuned for 2026! 〰️ Stay tuned for 2026! 〰️ Stay tuned for 2026! 〰️
-          </span>
-        </div>
+        <p className="text-4xl md:text-6xl font-bold text-white/10 text-center">
+          Stay tuned for 2026! 〰️
+        </p>
       </section>
 
       {/* CTA */}
       <section className="py-32 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
-            Are you ready to change the future?
-          </h2>
+          <h2 className="text-4xl md:text-6xl font-bold mb-8">Are you ready to change the future?</h2>
           <Link href="/register" className="btn-primary">REGISTRATION</Link>
         </div>
       </section>

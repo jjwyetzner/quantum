@@ -33,37 +33,14 @@ export default function YQuantum2025() {
   ]
 
   const institutions = [
-    'Yale University',
-    'Stanford University',
-    'Harvard University',
-    'Princeton University',
-    'Cornell University',
-    'MIT',
-    'Brown University',
-    'Duke University',
-    'Northwestern University',
-    'Tufts University',
-    'Boston University',
-    'New York University',
-    'Columbia University',
-    'University of Toronto',
-    'University of Maryland',
-    'Purdue University',
-    'Texas A&M University',
-    'Arizona State University',
-    'Northeastern University',
-    'Vanderbilt University',
-    'Case Western Reserve University',
-    'Rensselaer Polytechnic Institute',
-    'University of Connecticut',
-    'University of Massachusetts',
-    'Rutgers University',
-    'Lehigh University',
-    'City University of New York',
-    'UCLA',
-    'UC Davis',
-    'UT Dallas',
-    'Warsaw University of Technology',
+    'Yale University', 'Stanford University', 'Harvard University', 'Princeton University',
+    'Cornell University', 'MIT', 'Brown University', 'Duke University', 'Northwestern University',
+    'Tufts University', 'Boston University', 'New York University', 'Columbia University',
+    'University of Toronto', 'University of Maryland', 'Purdue University', 'Texas A&M University',
+    'Arizona State University', 'Northeastern University', 'Vanderbilt University',
+    'Case Western Reserve University', 'Rensselaer Polytechnic Institute', 'University of Connecticut',
+    'University of Massachusetts', 'Rutgers University', 'Lehigh University',
+    'City University of New York', 'UCLA', 'UC Davis', 'UT Dallas', 'Warsaw University of Technology',
   ]
 
   return (
@@ -74,9 +51,7 @@ export default function YQuantum2025() {
       <section className="pt-32 pb-20 px-6 lg:px-12 border-b border-white/10">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-8">YQUANTUM 2025</h1>
-          <p className="text-xl text-white/60 max-w-3xl mx-auto">
-            April 12th, 2025 at the Yale Quantum Institute
-          </p>
+          <p className="text-xl text-white/60">April 12th, 2025 at the Yale Quantum Institute</p>
         </div>
       </section>
 
@@ -108,10 +83,9 @@ export default function YQuantum2025() {
       <section className="py-32 px-6 lg:px-12 border-b border-white/10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">Schedule</h2>
-          
           <div className="mb-12">
             <h3 className="text-2xl font-bold mb-8">Saturday, April 12th, 2025</h3>
-            <div className="space-y-4">
+            <div className="space-y-0">
               {[
                 { time: '8:00 AM', event: 'Registration and breakfast' },
                 { time: '9:00 AM', event: 'Quantum computing workshops' },
@@ -121,22 +95,21 @@ export default function YQuantum2025() {
                 { time: '6:00 PM', event: 'Dinner' },
                 { time: '8:00 PM', event: 'Night Hack begins' },
               ].map((item) => (
-                <div key={item.time} className="flex gap-8 py-3 border-b border-white/10">
+                <div key={item.time} className="flex gap-8 py-4 border-b border-white/10">
                   <span className="text-white/40 w-24 flex-shrink-0">{item.time}</span>
                   <span>{item.event}</span>
                 </div>
               ))}
             </div>
           </div>
-
           <div>
             <h3 className="text-2xl font-bold mb-8">Sunday, April 13th, 2025</h3>
-            <div className="space-y-4">
+            <div className="space-y-0">
               {[
                 { time: '8:00 AM', event: 'Breakfast' },
                 { time: '12:00 PM', event: 'Hacking ends' },
               ].map((item) => (
-                <div key={item.time} className="flex gap-8 py-3 border-b border-white/10">
+                <div key={item.time} className="flex gap-8 py-4 border-b border-white/10">
                   <span className="text-white/40 w-24 flex-shrink-0">{item.time}</span>
                   <span>{item.event}</span>
                 </div>
@@ -165,13 +138,11 @@ export default function YQuantum2025() {
       <section className="py-32 px-6 lg:px-12 border-b border-white/10">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">Winners</h2>
-          
-          <div className="mb-12 p-8 border border-white/20">
+          <div className="mb-8 p-8 border border-white/20">
             <p className="text-sm text-white/40 mb-2">First Place</p>
             <p className="text-xl font-bold mb-4">Alexander Pfau, Jojo Dayelise Keller, Elijah DeSarro-Raynal</p>
             <p className="text-white/60">Prize: Expenses-paid trip to Lake Tahoe to present in front of the fire chief.</p>
           </div>
-
           <div className="p-8 border border-white/10">
             <p className="text-sm text-white/40 mb-2">Honorable Mention</p>
             <p className="text-xl font-bold mb-2">Superposition Seekers</p>
@@ -180,15 +151,13 @@ export default function YQuantum2025() {
         </div>
       </section>
 
-      {/* Institutions Represented */}
+      {/* Institutions */}
       <section className="py-32 px-6 lg:px-12 border-b border-white/10">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">Institutions Represented</h2>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-2">
             {institutions.map((inst) => (
-              <span key={inst} className="px-4 py-2 border border-white/10 text-white/60 text-sm">
-                {inst}
-              </span>
+              <span key={inst} className="px-3 py-1.5 text-white/50 text-sm">{inst}</span>
             ))}
           </div>
         </div>
@@ -198,25 +167,17 @@ export default function YQuantum2025() {
       <section className="py-32 px-6 lg:px-12 border-b border-white/10">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">2025 Sponsors</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-1">
             {sponsors.map((sponsor) => (
-              <div
-                key={sponsor.name}
-                className="aspect-[3/2] border border-white/10 bg-white flex items-center justify-center p-4"
-              >
+              <div key={sponsor.name} className="bg-white h-20 flex items-center justify-center px-3">
                 {sponsor.logo ? (
                   <img 
                     src={sponsor.logo} 
                     alt={sponsor.name}
-                    className="max-w-full max-h-full object-contain"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      target.parentElement!.innerHTML = `<span class="text-black/60 text-sm font-medium text-center">${sponsor.name}</span>`;
-                    }}
+                    className="h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all"
                   />
                 ) : (
-                  <span className="text-black/60 text-sm font-medium text-center">{sponsor.name}</span>
+                  <span className="text-black/70 text-xs font-semibold text-center leading-tight">{sponsor.name}</span>
                 )}
               </div>
             ))}
@@ -234,9 +195,7 @@ export default function YQuantum2025() {
       {/* CTA */}
       <section className="py-32 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
-            Stay tuned for 2026!
-          </h2>
+          <h2 className="text-4xl md:text-6xl font-bold mb-8">Stay tuned for 2026!</h2>
           <Link href="/register" className="btn-primary">REGISTRATION</Link>
         </div>
       </section>

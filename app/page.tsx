@@ -2,23 +2,24 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const sponsors2025 = [
-    'Alice & Bob',
-    'LTIMindtree',
-    'The Hartford',
-    'Capgemini',
-    'Rigetti',
-    'BlueQubit',
-    'Travelers',
-    'Quantinuum',
-    'QuEra',
-    'Quantum Rings',
-    'Superquantum',
-    'Tahoe Quantum',
+    { name: 'Alice & Bob', logo: 'https://logo.clearbit.com/alice-bob.com' },
+    { name: 'LTIMindtree', logo: 'https://logo.clearbit.com/ltimindtree.com' },
+    { name: 'The Hartford', logo: 'https://logo.clearbit.com/thehartford.com' },
+    { name: 'Capgemini', logo: 'https://logo.clearbit.com/capgemini.com' },
+    { name: 'Rigetti', logo: 'https://logo.clearbit.com/rigetti.com' },
+    { name: 'BlueQubit', logo: 'https://logo.clearbit.com/bluequbit.io' },
+    { name: 'Travelers', logo: 'https://logo.clearbit.com/travelers.com' },
+    { name: 'Quantinuum', logo: 'https://logo.clearbit.com/quantinuum.com' },
+    { name: 'QuEra', logo: 'https://logo.clearbit.com/quera.com' },
+    { name: 'Quantum Rings', logo: null },
+    { name: 'Superquantum', logo: null },
+    { name: 'Tahoe Quantum', logo: null },
   ]
 
   const institutions = [
@@ -210,14 +211,27 @@ export default function Home() {
       <section className="py-32 px-6 lg:px-12 border-t border-white/10">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">2025 Sponsors</h2>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {sponsors2025.map((sponsor) => (
-              <span
-                key={sponsor}
-                className="px-6 py-3 border border-white/20 text-white/80 font-medium"
+              <div
+                key={sponsor.name}
+                className="aspect-[3/2] border border-white/10 bg-white flex items-center justify-center p-4"
               >
-                {sponsor}
-              </span>
+                {sponsor.logo ? (
+                  <img 
+                    src={sponsor.logo} 
+                    alt={sponsor.name}
+                    className="max-w-full max-h-full object-contain"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      target.parentElement!.innerHTML = `<span class="text-black/60 text-sm font-medium text-center">${sponsor.name}</span>`;
+                    }}
+                  />
+                ) : (
+                  <span className="text-black/60 text-sm font-medium text-center">{sponsor.name}</span>
+                )}
+              </div>
             ))}
           </div>
         </div>
@@ -233,7 +247,7 @@ export default function Home() {
       {/* Stay tuned marquee */}
       <section className="py-16 border-t border-white/10 overflow-hidden">
         <div className="whitespace-nowrap">
-          <span className="inline-block text-4xl md:text-6xl font-bold text-white/10 animate-pulse">
+          <span className="inline-block text-4xl md:text-6xl font-bold text-white/10">
             Stay tuned for 2026! 〰️ Stay tuned for 2026! 〰️ Stay tuned for 2026! 〰️
           </span>
         </div>

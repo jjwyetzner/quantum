@@ -1,21 +1,23 @@
+'use client'
+
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import Link from 'next/link'
 
 export default function YQuantum2025() {
   const sponsors = [
-    'Alice & Bob',
-    'LTIMindtree',
-    'The Hartford',
-    'Capgemini',
-    'Rigetti',
-    'BlueQubit',
-    'Travelers',
-    'Quantinuum',
-    'QuEra',
-    'Quantum Rings',
-    'Superquantum',
-    'Tahoe Quantum',
+    { name: 'Alice & Bob', logo: 'https://logo.clearbit.com/alice-bob.com' },
+    { name: 'LTIMindtree', logo: 'https://logo.clearbit.com/ltimindtree.com' },
+    { name: 'The Hartford', logo: 'https://logo.clearbit.com/thehartford.com' },
+    { name: 'Capgemini', logo: 'https://logo.clearbit.com/capgemini.com' },
+    { name: 'Rigetti', logo: 'https://logo.clearbit.com/rigetti.com' },
+    { name: 'BlueQubit', logo: 'https://logo.clearbit.com/bluequbit.io' },
+    { name: 'Travelers', logo: 'https://logo.clearbit.com/travelers.com' },
+    { name: 'Quantinuum', logo: 'https://logo.clearbit.com/quantinuum.com' },
+    { name: 'QuEra', logo: 'https://logo.clearbit.com/quera.com' },
+    { name: 'Quantum Rings', logo: null },
+    { name: 'Superquantum', logo: null },
+    { name: 'Tahoe Quantum', logo: null },
   ]
 
   const challenges = [
@@ -196,11 +198,27 @@ export default function YQuantum2025() {
       <section className="py-32 px-6 lg:px-12 border-b border-white/10">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">2025 Sponsors</h2>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {sponsors.map((sponsor) => (
-              <span key={sponsor} className="px-6 py-3 border border-white/20 text-white/80 font-medium">
-                {sponsor}
-              </span>
+              <div
+                key={sponsor.name}
+                className="aspect-[3/2] border border-white/10 bg-white flex items-center justify-center p-4"
+              >
+                {sponsor.logo ? (
+                  <img 
+                    src={sponsor.logo} 
+                    alt={sponsor.name}
+                    className="max-w-full max-h-full object-contain"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      target.parentElement!.innerHTML = `<span class="text-black/60 text-sm font-medium text-center">${sponsor.name}</span>`;
+                    }}
+                  />
+                ) : (
+                  <span className="text-black/60 text-sm font-medium text-center">{sponsor.name}</span>
+                )}
+              </div>
             ))}
           </div>
         </div>

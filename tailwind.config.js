@@ -9,17 +9,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        quantum: {
-          primary: '#00d4ff',
-          secondary: '#7c3aed',
-          accent: '#ec4899',
-          dark: '#0a0e27',
-          darker: '#050816',
+        yale: {
+          navy: '#00356b',
+          blue: '#286dc0',
+          accent: '#5f8dd3',
+        },
+        sky: {
+          light: '#e3f2fd',
+          DEFAULT: '#bbdefb',
         },
       },
       fontFamily: {
-        sans: ['Outfit', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+        serif: ['Crimson Text', 'serif'],
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',

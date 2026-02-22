@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'YQuantum | Yale\'s Premier Quantum Computing Hackathon',
+  title: 'YQuantum 2026',
   description: 'YQuantum is Yale\'s premier quantum computing hackathon. Program on quantum computers. Design the solutions of tomorrow.',
   keywords: 'quantum computing, hackathon, Yale, YQI, quantum algorithms, quantum hardware',
 }

@@ -28,6 +28,25 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+
+  useEffect(() => {
+    const target = new Date('2026-04-04T00:00:00-04:00').getTime()
+    const tick = () => {
+      const now = Date.now()
+      const diff = Math.max(0, target - now)
+      setTimeLeft({
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / (1000 * 60)) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+      })
+    }
+    tick()
+    const id = setInterval(tick, 1000)
+    return () => clearInterval(id)
+  }, [])
+
   const faqs = [
     { q: 'What is YQuantum?', a: "YQuantum is Yale's premier quantum computing hackathon, organized by the Yale Undergraduate Quantum Computing group in partnership with the Yale Quantum Institute (YQI). It brings together students from around the world to work on cutting-edge quantum computing challenges." },
     { q: 'Who can participate?', a: 'YQuantum is open to undergraduate and graduate students from universities around the world. High school students are not eligible to participate. No prior quantum computing experience is required — we welcome beginners and experts alike!' },
@@ -111,7 +130,7 @@ export default function Home() {
       <section className="min-h-screen flex items-center justify-center px-6 lg:px-12">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.15] tracking-tight mb-6 font-serif text-white">
-            YQuantum 2026
+            |Y⟩Quantum
           </h1>
           <p className="text-xl md:text-2xl text-white/80 mb-4">Yale&apos;s premier quantum computing hackathon</p>
           <div className="text-lg md:text-xl text-white/70 mb-8 space-y-2">
@@ -120,6 +139,27 @@ export default function Home() {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://forms.gle/e2vDg3WMgXuehXzU6" target="_blank" rel="noopener noreferrer" className="btn-primary">REGISTER NOW</a>
+          </div>
+          <div className="mt-8 flex gap-6 justify-center text-white">
+            <div className="text-center">
+              <p className="text-4xl md:text-5xl font-bold font-serif">{String(timeLeft.days).padStart(2, '0')}</p>
+              <p className="text-xs uppercase tracking-widest text-white/60 mt-1">Days</p>
+            </div>
+            <p className="text-4xl md:text-5xl font-bold">:</p>
+            <div className="text-center">
+              <p className="text-4xl md:text-5xl font-bold font-serif">{String(timeLeft.hours).padStart(2, '0')}</p>
+              <p className="text-xs uppercase tracking-widest text-white/60 mt-1">Hours</p>
+            </div>
+            <p className="text-4xl md:text-5xl font-bold">:</p>
+            <div className="text-center">
+              <p className="text-4xl md:text-5xl font-bold font-serif">{String(timeLeft.minutes).padStart(2, '0')}</p>
+              <p className="text-xs uppercase tracking-widest text-white/60 mt-1">Minutes</p>
+            </div>
+            <p className="text-4xl md:text-5xl font-bold">:</p>
+            <div className="text-center">
+              <p className="text-4xl md:text-5xl font-bold font-serif">{String(timeLeft.seconds).padStart(2, '0')}</p>
+              <p className="text-xs uppercase tracking-widest text-white/60 mt-1">Seconds</p>
+            </div>
           </div>
         </div>
       </section>

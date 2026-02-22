@@ -1,10 +1,32 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [visible, setVisible] = useState(true)
+  const lastScrollY = useRef(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      const delta = currentScrollY - lastScrollY.current
+
+      if (delta > 10) {
+        setVisible(false)
+        setMenuOpen(false)
+      } else if (delta < -10) {
+        setVisible(true)
+      }
+
+      lastScrollY.current = currentScrollY
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const faqs = [
     { q: 'What is YQuantum?', a: "YQuantum is Yale's premier quantum computing hackathon, organized by the Yale Undergraduate Quantum Computing group in partnership with the Yale Quantum Institute (YQI). It brings together students from around the world to work on cutting-edge quantum computing challenges." },
@@ -25,12 +47,18 @@ export default function Home() {
   ]
 
   return (
-    <main className="bg-sky-light min-h-screen">
+    <main className="min-h-screen">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-yale-navy shadow-md">
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${visible ? 'translate-y-0' : '-translate-y-full'
+          }`}
+        style={{ backgroundColor: 'transparent' }}
+      >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
-            <a href="#" className="text-xl font-bold tracking-tight text-white font-serif">YQuantum 2026</a>
+            <a href="#" className="inline-block">
+              <Image src="/logo.png" alt="YQuantum" width={50} height={50} className="block" />
+            </a>
             <div className="hidden md:flex items-center gap-10">
               {navLinks.map((link) => (
                 <a key={link.label} href={link.href} className="text-sm text-white/80 hover:text-white transition-colors">
@@ -41,7 +69,7 @@ export default function Home() {
                 href="https://forms.gle/e2vDg3WMgXuehXzU6"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold text-white border-2 border-white px-5 py-2 hover:bg-white hover:text-yale-navy transition-colors"
+                className="btn-primary"
               >
                 REGISTER
               </a>
@@ -58,7 +86,7 @@ export default function Home() {
           </div>
         </div>
         {menuOpen && (
-          <div className="md:hidden bg-yale-navy border-t border-white/10 px-6 py-8">
+          <div className="md:hidden bg-black/60 backdrop-blur-md border-t border-white/10 px-6 py-8">
             <div className="flex flex-col gap-6 text-white">
               {navLinks.map((link) => (
                 <a key={link.label} href={link.href} className="text-lg" onClick={() => setMenuOpen(false)}>
@@ -69,7 +97,7 @@ export default function Home() {
                 href="https://forms.gle/e2vDg3WMgXuehXzU6"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg font-semibold text-white border-2 border-white px-5 py-3 text-center mt-4 hover:bg-white hover:text-yale-navy transition-colors"
+                className="btn-primary text-center mt-4"
                 onClick={() => setMenuOpen(false)}
               >
                 REGISTER
@@ -82,13 +110,13 @@ export default function Home() {
       {/* Hero */}
       <section className="min-h-screen flex items-center justify-center px-6 lg:px-12">
         <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.15] tracking-tight mb-6 font-serif text-yale-navy">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.15] tracking-tight mb-6 font-serif text-white">
             YQuantum 2026
           </h1>
-          <p className="text-xl md:text-2xl text-slate-700 mb-4">Yale&apos;s premier quantum computing hackathon</p>
-          <div className="text-lg md:text-xl text-slate-600 mb-8 space-y-2">
-            <p><strong className="text-yale-navy">Where:</strong> Yale Science Building, 260 Whitney Ave, New Haven, CT</p>
-            <p><strong className="text-yale-navy">When:</strong> April 4th-5th, 2026</p>
+          <p className="text-xl md:text-2xl text-white/80 mb-4">Yale&apos;s premier quantum computing hackathon</p>
+          <div className="text-lg md:text-xl text-white/70 mb-8 space-y-2">
+            <p><strong className="text-white">Where:</strong> Yale Science Building, 260 Whitney Ave, New Haven, CT</p>
+            <p><strong className="text-white">When:</strong> April 4th-5th, 2026</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://forms.gle/e2vDg3WMgXuehXzU6" target="_blank" rel="noopener noreferrer" className="btn-primary">REGISTER NOW</a>
@@ -97,22 +125,22 @@ export default function Home() {
       </section>
 
       {/* About YQI */}
-      <section className="py-32 px-6 lg:px-12 border-t border-yale-navy/20">
+      <section className="py-32 px-6 lg:px-12 border-t border-white/20">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-6">
-            <p className="text-lg text-slate-700 leading-relaxed">
+            <p className="text-lg text-white/80 leading-relaxed">
               The{' '}
-              <a href="https://quantuminstitute.yale.edu/" target="_blank" rel="noopener noreferrer" className="text-yale-blue hover:underline font-semibold">
+              <a href="https://quantuminstitute.yale.edu/" target="_blank" rel="noopener noreferrer" className="text-sky-300 hover:underline font-semibold">
                 Yale Quantum Institute (YQI)
               </a>
-              {' '}is a world leader in quantum information science, encompassing <span className="text-yale-navy font-semibold">30+ research groups</span> across fields including quantum engineering, quantum error correction, optics and photonics, superconducting qubits, and quantum cryptography.
+              {' '}is a world leader in quantum information science, encompassing <span className="text-white font-semibold">30+ research groups</span> across fields including quantum engineering, quantum error correction, optics and photonics, superconducting qubits, and quantum cryptography.
             </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
+            <p className="text-lg text-white/80 leading-relaxed">
               Major research advancements at YQI include the first superconducting device prototype, the first superconducting quantum processor, the first demonstrated quantum algorithm on a QPU, the first realization of photonic quantum circuits, and the longest superconducting coherence time (as of 2025).
             </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
+            <p className="text-lg text-white/80 leading-relaxed">
               Through YQuantum, the{' '}
-              <a href="https://yuqc.yale.edu/" target="_blank" rel="noopener noreferrer" className="text-yale-blue hover:underline font-semibold">
+              <a href="https://yuqc.yale.edu/" target="_blank" rel="noopener noreferrer" className="text-sky-300 hover:underline font-semibold">
                 Yale Undergraduate Quantum Computing
               </a>
               {' '}group aims to immerse students from around the world in this hotbed of research, empowering them to take advantage of the vibrant environment of innovation, working on the cutting edge of the field and shaping its future.
@@ -122,41 +150,41 @@ export default function Home() {
       </section>
 
       {/* Schedule */}
-      <section id="schedule" className="scroll-mt-20 py-32 px-6 lg:px-12 border-t border-yale-navy/20">
+      <section id="schedule" className="scroll-mt-20 py-32 px-6 lg:px-12 border-t border-white/20">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 font-serif text-yale-navy">Schedule</h2>
-          <p className="text-xl text-slate-700">Coming soon!</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 font-serif text-white">Schedule</h2>
+          <p className="text-xl text-white/70">Coming soon!</p>
         </div>
       </section>
 
       {/* Sponsors */}
-      <section id="sponsors" className="scroll-mt-20 py-32 px-6 lg:px-12 border-t border-yale-navy/20">
+      <section id="sponsors" className="scroll-mt-20 py-32 px-6 lg:px-12 border-t border-white/20">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 font-serif text-yale-navy">Sponsors</h2>
-          <p className="text-xl text-slate-700 mb-6">Sponsors and challenges to be announced soon!</p>
-          <p className="text-lg text-slate-600">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 font-serif text-white">Sponsors</h2>
+          <p className="text-xl text-white/70 mb-6">Sponsors and challenges to be announced soon!</p>
+          <p className="text-lg text-white/60">
             Interested in sponsoring? Reach out to{' '}
-            <a href="mailto:jeffrey.wei@yale.edu" className="text-yale-blue hover:underline">jeffrey.wei@yale.edu</a>
+            <a href="mailto:jeffrey.wei@yale.edu" className="text-sky-300 hover:underline">jeffrey.wei@yale.edu</a>
             {' '}and{' '}
-            <a href="mailto:florian.carle@yale.edu" className="text-yale-blue hover:underline">florian.carle@yale.edu</a>
+            <a href="mailto:florian.carle@yale.edu" className="text-sky-300 hover:underline">florian.carle@yale.edu</a>
           </p>
         </div>
       </section>
 
       {/* FAQs */}
-      <section id="faqs" className="scroll-mt-20 py-32 px-6 lg:px-12 border-t border-yale-navy/20">
+      <section id="faqs" className="scroll-mt-20 py-32 px-6 lg:px-12 border-t border-white/20">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center font-serif text-yale-navy">FAQs</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center font-serif text-white">FAQs</h2>
           <div className="space-y-0">
             {faqs.map((faq, i) => (
-              <details key={i} className="group border-b border-yale-navy/20">
-                <summary className="py-6 cursor-pointer flex items-center justify-between text-lg font-medium list-none text-yale-navy">
+              <details key={i} className="group border-b border-white/20">
+                <summary className="py-6 cursor-pointer flex items-center justify-between text-lg font-medium list-none text-white">
                   {faq.q}
-                  <svg className="w-5 h-5 text-slate-400 group-open:rotate-45 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-white/40 group-open:rotate-45 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
                   </svg>
                 </summary>
-                <p className="pb-6 text-slate-700 leading-relaxed">{faq.a}</p>
+                <p className="pb-6 text-white/70 leading-relaxed">{faq.a}</p>
               </details>
             ))}
           </div>
@@ -164,36 +192,36 @@ export default function Home() {
       </section>
 
       {/* Team */}
-      <section id="team" className="scroll-mt-20 py-32 px-6 lg:px-12 border-t border-yale-navy/20">
+      <section id="team" className="scroll-mt-20 py-32 px-6 lg:px-12 border-t border-white/20">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-16 font-serif text-yale-navy">Team</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-16 font-serif text-white">Team</h2>
 
           {/* Co-Directors */}
-          <h3 className="text-2xl font-bold text-yale-navy mb-8">Co-Directors</h3>
+          <h3 className="text-2xl font-bold text-white mb-8">Co-Directors</h3>
           <div className="flex flex-col sm:flex-row gap-8 justify-center mb-16">
             {['Jeffrey Wei', 'Jared Wyetzner'].map((name) => (
-              <div key={name} className="p-6 border border-yale-navy/20 bg-white/50 sm:w-64">
-                <p className="text-xl font-bold text-yale-navy">{name}</p>
+              <div key={name} className="p-6 border border-white/20 bg-white/10 sm:w-64 rounded">
+                <p className="text-xl font-bold text-white">{name}</p>
               </div>
             ))}
           </div>
 
           {/* Committee */}
-          <h3 className="text-2xl font-bold text-yale-navy mb-8">Committee</h3>
+          <h3 className="text-2xl font-bold text-white mb-8">Committee</h3>
           <div className="flex flex-wrap gap-8 justify-center mb-16">
             {['Wenhe', 'Kai-shan', 'Ryan', 'Lewis', 'George', 'William', 'Ahmed', 'Henry'].map((name) => (
-              <div key={name} className="p-6 border border-yale-navy/20 bg-white/50 sm:w-64">
-                <p className="text-xl font-bold text-yale-navy">{name}</p>
+              <div key={name} className="p-6 border border-white/20 bg-white/10 sm:w-64 rounded">
+                <p className="text-xl font-bold text-white">{name}</p>
               </div>
             ))}
           </div>
 
           {/* Faculty Supervisors */}
-          <h3 className="text-2xl font-bold text-yale-navy mb-8">Faculty Supervisors</h3>
+          <h3 className="text-2xl font-bold text-white mb-8">Faculty Supervisors</h3>
           <div className="flex flex-col sm:flex-row gap-8 justify-center">
             {['Florian Carle', 'Kimberly Nuzzo'].map((name) => (
-              <div key={name} className="p-6 border border-yale-navy/20 bg-white/50 sm:w-64">
-                <p className="text-xl font-bold text-yale-navy">{name}</p>
+              <div key={name} className="p-6 border border-white/20 bg-white/10 sm:w-64 rounded">
+                <p className="text-xl font-bold text-white">{name}</p>
               </div>
             ))}
           </div>
@@ -201,27 +229,27 @@ export default function Home() {
       </section>
 
       {/* Archive */}
-      <section id="archive" className="scroll-mt-20 py-32 px-6 lg:px-12 border-t border-yale-navy/20">
+      <section id="archive" className="scroll-mt-20 py-32 px-6 lg:px-12 border-t border-white/20">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center font-serif text-yale-navy">Archive</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center font-serif text-white">Archive</h2>
           <div className="space-y-0">
-            <Link href="/2025" className="flex items-center justify-between py-12 border-b border-yale-navy/20 group">
+            <Link href="/2025" className="flex items-center justify-between py-12 border-b border-white/20 group">
               <div>
-                <p className="text-sm text-slate-500 uppercase tracking-widest mb-2">YQuantum</p>
-                <p className="text-4xl md:text-5xl font-bold font-serif text-yale-navy">2025</p>
-                <p className="text-slate-600 mt-2">April 12th, 2025 · Yale Quantum Institute</p>
+                <p className="text-sm text-white/50 uppercase tracking-widest mb-2">YQuantum</p>
+                <p className="text-4xl md:text-5xl font-bold font-serif text-white">2025</p>
+                <p className="text-white/60 mt-2">April 12th, 2025 · Yale Quantum Institute</p>
               </div>
-              <svg className="w-6 h-6 text-slate-400 group-hover:text-yale-navy transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-white/40 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
-            <Link href="/2024" className="flex items-center justify-between py-12 border-b border-yale-navy/20 group">
+            <Link href="/2024" className="flex items-center justify-between py-12 border-b border-white/20 group">
               <div>
-                <p className="text-sm text-slate-500 uppercase tracking-widest mb-2">YQuantum</p>
-                <p className="text-4xl md:text-5xl font-bold font-serif text-yale-navy">2024</p>
-                <p className="text-slate-600 mt-2">April 13th, 2024 · Yale University</p>
+                <p className="text-sm text-white/50 uppercase tracking-widest mb-2">YQuantum</p>
+                <p className="text-4xl md:text-5xl font-bold font-serif text-white">2024</p>
+                <p className="text-white/60 mt-2">April 13th, 2024 · Yale University</p>
               </div>
-              <svg className="w-6 h-6 text-slate-400 group-hover:text-yale-navy transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-white/40 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
               </svg>
             </Link>

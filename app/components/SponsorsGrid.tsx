@@ -26,7 +26,7 @@ const SponsorsGrid: React.FC<SponsorsGridProps> = ({ sponsors }) => {
                             src={sponsor.logo}
                             alt={`${sponsor.name} logo`}
                             fill
-                            className="object-contain grayscale group-hover:grayscale-0 transition-all duration-500 opacity-70 group-hover:opacity-100"
+                            className="object-contain transition-all duration-500"
                             sizes="(max-w-640px) 50vw, (max-w-768px) 33vw, (max-w-1024px) 25vw, 16vw"
                         />
                     </div>

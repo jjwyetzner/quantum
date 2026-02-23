@@ -1,6 +1,9 @@
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import Link from 'next/link'
+import SponsorsGrid from '../components/SponsorsGrid'
+import { sponsors2024 } from '../content/sponsors'
+import { universities } from '../content/universities'
 
 export default function YQuantum2024() {
   return (
@@ -45,18 +48,20 @@ export default function YQuantum2024() {
       <section className="py-32 px-6 lg:px-12 border-b border-yale-navy/20">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold font-serif text-yale-navy mb-16">2024 Sponsors</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {['IBM Quantum', 'Classiq', 'QC Ware', 'Strangeworks', 'QuEra', 'Xanadu'].map((sponsor) => (
-              <div key={sponsor} className="bg-white/50 border border-yale-navy/20 p-6 flex items-center justify-center">
-                <span className="text-yale-navy font-semibold">{sponsor}</span>
-              </div>
-            ))}
-          </div>
+          <SponsorsGrid sponsors={sponsors2024} />
+        </div>
+      </section>
+
+      {/* Institutions Represented */}
+      <section className="py-32 px-6 lg:px-12 border-b border-yale-navy/20">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold font-serif text-yale-navy mb-16 text-center">Institutions Represented</h2>
+          <SponsorsGrid sponsors={universities} />
         </div>
       </section>
 
       {/* 6 Challenges */}
-      <section className="py-32 px-6 lg:px-12 border-b border-yale-navy/20">
+      <section className="py-32 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold font-serif text-yale-navy">6 Challenges</h2>
           <p className="text-slate-700 mt-4">Set by industry sponsors</p>

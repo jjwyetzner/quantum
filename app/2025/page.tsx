@@ -1,23 +1,10 @@
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
-import Link from 'next/link'
+import SponsorsGrid from '../components/SponsorsGrid'
+import { sponsors2025 } from '../content/sponsors'
+import { universities } from '../content/universities'
 
 export default function YQuantum2025() {
-  const sponsors = [
-    { name: 'Alice & Bob', logo: 'https://logo.clearbit.com/alice-bob.com' },
-    { name: 'LTIMindtree', logo: 'https://logo.clearbit.com/ltimindtree.com' },
-    { name: 'The Hartford', logo: 'https://logo.clearbit.com/thehartford.com' },
-    { name: 'Capgemini', logo: 'https://logo.clearbit.com/capgemini.com' },
-    { name: 'Rigetti', logo: 'https://logo.clearbit.com/rigetti.com' },
-    { name: 'BlueQubit', logo: 'https://logo.clearbit.com/bluequbit.io' },
-    { name: 'Travelers', logo: 'https://logo.clearbit.com/travelers.com' },
-    { name: 'Quantinuum', logo: 'https://logo.clearbit.com/quantinuum.com' },
-    { name: 'QuEra', logo: 'https://logo.clearbit.com/quera.com' },
-    { name: 'Quantum Rings', logo: null },
-    { name: 'Superquantum', logo: null },
-    { name: 'Tahoe Quantum', logo: null },
-  ]
-
   const challenges = [
     { sponsor: 'Alice & Bob', description: 'Reconstruct quantum states from Wigner functions.' },
     { sponsor: 'The Hartford, Capgemini, Rigetti', description: 'Use quantum optimization to minimize risk in correlated insurance portfolios.' },
@@ -28,17 +15,6 @@ export default function YQuantum2025() {
     { sponsor: 'Quantum Rings', description: 'Use Shor\'s algorithm to semiclassically factor large numbers.' },
     { sponsor: 'Superquantum', description: 'Develop quantum-enhanced hash functions for blockchain and crypto applications.' },
     { sponsor: 'Tahoe Quantum', description: 'Leverage quantum optimization to improve wildfire response.' },
-  ]
-
-  const institutions = [
-    'Yale University', 'Stanford University', 'Harvard University', 'Princeton University',
-    'Cornell University', 'MIT', 'Brown University', 'Duke University', 'Northwestern University',
-    'Tufts University', 'Boston University', 'New York University', 'Columbia University',
-    'University of Toronto', 'University of Maryland', 'Purdue University', 'Texas A&M University',
-    'Arizona State University', 'Northeastern University', 'Vanderbilt University',
-    'Case Western Reserve University', 'Rensselaer Polytechnic Institute', 'University of Connecticut',
-    'University of Massachusetts', 'Rutgers University', 'Lehigh University',
-    'City University of New York', 'UCLA', 'UC Davis', 'UT Dallas', 'Warsaw University of Technology',
   ]
 
   return (
@@ -120,7 +96,7 @@ export default function YQuantum2025() {
       {/* Devpost */}
       <section className="py-16 px-6 lg:px-12 border-b border-yale-navy/20">
         <div className="max-w-4xl mx-auto text-center">
-          <a href="https://yquantum-2025.devpost.com/" target="_blank" rel="noopener noreferrer" className="btn-primary">VIEW YQUANTUM 2025 DEVPOST</a>
+          <a href="https://yquantum-2025.devpost.com/" target="_blank" rel="noopener noreferrer" className="inline-block bg-yale-navy text-white px-8 py-4 rounded font-bold hover:bg-yale-navy/90 transition-colors">VIEW YQUANTUM 2025 DEVPOST</a>
         </div>
       </section>
 
@@ -143,7 +119,7 @@ export default function YQuantum2025() {
       <section className="py-32 px-6 lg:px-12 border-b border-yale-navy/20">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold font-serif text-yale-navy mb-16 text-center">Winners</h2>
-          <div className="mb-8 p-8 border border-white/20">
+          <div className="mb-8 p-8 border border-yale-navy/20">
             <p className="text-sm text-slate-600 mb-2">First Place</p>
             <p className="text-xl font-bold text-yale-navy mb-4">Alexander Pfau, Jojo Dayelise Keller, Elijah DeSarro-Raynal</p>
             <p className="text-slate-700">Prize: Expenses-paid trip to Lake Tahoe to present in front of the fire chief.</p>
@@ -156,37 +132,19 @@ export default function YQuantum2025() {
         </div>
       </section>
 
-      {/* Institutions */}
+      {/* Institutions Represented */}
       <section className="py-32 px-6 lg:px-12 border-b border-yale-navy/20">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold font-serif text-yale-navy mb-16 text-center">Institutions Represented</h2>
-          <div className="flex flex-wrap justify-center gap-3">
-            {institutions.map((inst) => (
-              <span key={inst} className="px-4 py-2 text-slate-700 text-base">{inst}</span>
-            ))}
-          </div>
+          <SponsorsGrid sponsors={universities} />
         </div>
       </section>
 
       {/* 2025 Sponsors */}
-      <section className="py-32 px-6 lg:px-12 border-b border-yale-navy/20">
+      <section className="py-32 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold font-serif text-yale-navy mb-16 text-center">2025 Sponsors</h2>
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-1">
-            {sponsors.map((sponsor) => (
-              <div key={sponsor.name} className="bg-white h-20 flex items-center justify-center px-3">
-                {sponsor.logo ? (
-                  <img 
-                    src={sponsor.logo} 
-                    alt={sponsor.name}
-                    className="h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all"
-                  />
-                ) : (
-                  <span className="text-black/70 text-xs font-semibold text-center leading-tight">{sponsor.name}</span>
-                )}
-              </div>
-            ))}
-          </div>
+          <SponsorsGrid sponsors={sponsors2025} />
         </div>
       </section>
 

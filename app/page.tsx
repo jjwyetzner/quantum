@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import HackathonHighlights from '@/components/HackathonHighlights'
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -163,6 +164,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <div className="border-t border-white/20" />
+      <HackathonHighlights />
 
       {/* About YQI */}
       <section className="py-32 px-6 lg:px-12 border-t border-white/20">

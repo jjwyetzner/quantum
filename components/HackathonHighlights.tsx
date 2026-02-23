@@ -30,8 +30,8 @@ try {
 }
 
 const HackathonHighlights = ({
-    montageSpeedMs = 180,
-    pauseOnHover = true,
+    montageSpeedMs = 1800,
+    pauseOnHover = false,
 }) => {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [inView, setInView] = useState(false)
@@ -133,16 +133,16 @@ const HackathonHighlights = ({
     return (
         <section
             ref={wrapperRef}
-            className="bg-black py-8 md:py-12 px-2 sm:px-4 overflow-hidden min-h-[300px]"
+            className="py-8 md:py-12 px-2 sm:px-4 overflow-hidden min-h-[300px]"
         >
             <div className="max-w-7xl mx-auto relative group">
 
                 <div
-                    className="relative w-full aspect-video md:aspect-[21/9] rounded-xl overflow-hidden border border-white/10 bg-neutral-900 shadow-2xl cursor-pointer"
+                    className="relative w-full aspect-video md:aspect-[21/9] rounded-xl overflow-hidden border border-white/10 shadow-2xl cursor-pointer"
                     onMouseMove={handleMouseMove}
                     onMouseLeave={() => setHoverSide(null)}
-                    onClick={() => handleInteraction(true)}
-                    onMouseEnter={() => pauseOnHover && handleInteraction(false)}
+                    onClick={() => { }}
+                    onMouseEnter={() => { }}
                     onFocusCapture={() => handleInteraction(true)}
                     tabIndex={0}
                 >
@@ -204,8 +204,8 @@ const HackathonHighlights = ({
                                     handleInteraction(true);
                                 }}
                                 className={`h-1 flex-1 rounded-sm transition-all duration-300 outline-none relative overflow-hidden ${idx === currentIndex
-                                        ? 'bg-white/90 scale-y-150'
-                                        : 'bg-white/10 hover:bg-white/40'
+                                    ? 'bg-white/90 scale-y-150'
+                                    : 'bg-white/10 hover:bg-white/40'
                                     } focus-visible:ring-1 focus-visible:ring-white/50`}
                                 aria-label={`Jump to highlight ${idx + 1}`}
                             />

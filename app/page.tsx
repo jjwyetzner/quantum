@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import HackathonHighlights from '@/components/HackathonHighlights'
+import ParticleBackground from './components/ParticleBackground'
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -67,7 +68,8 @@ export default function Home() {
   ]
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen relative">
+      <ParticleBackground />
       {/* Navigation */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ${visible ? 'translate-y-0' : '-translate-y-full'
@@ -168,8 +170,11 @@ export default function Home() {
       <div className="border-t border-white/20" />
       <HackathonHighlights />
 
+      {/* Gradient divider — gold accent */}
+      <div className="h-[2px]" style={{ background: 'linear-gradient(90deg, transparent, #F4D35E40, #EC893240, transparent)' }} />
+
       {/* About YQI */}
-      <section className="py-32 px-6 lg:px-12 border-t border-white/20">
+      <section className="py-32 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-6">
             <p className="text-lg text-white/80 leading-relaxed">
@@ -193,18 +198,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Gradient divider — gold to orange */}
+      <div className="h-[2px]" style={{ background: 'linear-gradient(90deg, transparent, #F4D35E30, #EC893250, #F4D35E30, transparent)' }} />
+
       {/* Schedule */}
-      <section id="schedule" className="scroll-mt-20 py-32 px-6 lg:px-12 border-t border-white/20">
+      <section id="schedule" className="scroll-mt-20 py-32 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 font-serif text-white">Schedule</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 font-serif" style={{ color: '#FDFAEC' }}>Schedule</h2>
           <p className="text-xl text-white/70">Coming soon!</p>
         </div>
       </section>
 
+      {/* Gradient divider — warm orange */}
+      <div className="h-[2px]" style={{ background: 'linear-gradient(90deg, transparent, #EC893240, #F4D35E50, #EC893240, transparent)' }} />
+
       {/* Sponsors */}
-      <section id="sponsors" className="scroll-mt-20 py-32 px-6 lg:px-12 border-t border-white/20">
+      <section id="sponsors" className="scroll-mt-20 py-32 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 font-serif text-white">Sponsors</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 font-serif" style={{ color: '#FDFAEC' }}>Sponsors</h2>
           <p className="text-xl text-white/70 mb-6">Sponsors and challenges to be announced soon!</p>
           <p className="text-lg text-white/60">
             Interested in sponsoring? Reach out to{' '}
@@ -215,13 +226,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Gradient divider — gold */}
+      <div className="h-[2px]" style={{ background: 'linear-gradient(90deg, transparent, #F4D35E50, transparent)' }} />
+
       {/* FAQs */}
-      <section id="faqs" className="scroll-mt-20 py-32 px-6 lg:px-12 border-t border-white/20">
+      <section id="faqs" className="scroll-mt-20 py-32 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center font-serif text-white">FAQs</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center font-serif" style={{ color: '#FDFAEC' }}>FAQs</h2>
           <div className="space-y-0">
             {faqs.map((faq, i) => (
-              <details key={i} className="group border-b border-white/20">
+              <details key={i} className="group border-b border-white/10" style={{ borderImage: 'linear-gradient(90deg, transparent, rgba(244,211,94,0.2), transparent) 1' }}>
                 <summary className="py-6 cursor-pointer flex items-center justify-between text-lg font-medium list-none text-white">
                   {faq.q}
                   <svg className="w-5 h-5 text-white/40 group-open:rotate-45 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -235,36 +249,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Gradient divider — orange to red */}
+      <div className="h-[2px]" style={{ background: 'linear-gradient(90deg, transparent, #EC893240, #ED2E0730, #EC893240, transparent)' }} />
+
       {/* Team */}
-      <section id="team" className="scroll-mt-20 py-32 px-6 lg:px-12 border-t border-white/20">
+      <section id="team" className="scroll-mt-20 py-32 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-16 font-serif text-white">Team</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-16 font-serif" style={{ color: '#FDFAEC' }}>Team</h2>
 
           {/* Co-Directors */}
-          <h3 className="text-2xl font-bold text-white mb-8">Co-Directors</h3>
+          <h3 className="text-2xl font-bold mb-8" style={{ color: '#F4D35E' }}>Co-Directors</h3>
           <div className="flex flex-col sm:flex-row gap-8 justify-center mb-16">
             {['Jeffrey Wei', 'Jared Wyetzner'].map((name) => (
-              <div key={name} className="p-6 border border-white/20 bg-white/10 sm:w-64 rounded">
+              <div key={name} className="p-6 border bg-white/5 hover:bg-white/10 transition-colors sm:w-64 rounded">
                 <p className="text-xl font-bold text-white">{name}</p>
               </div>
             ))}
           </div>
 
           {/* Committee */}
-          <h3 className="text-2xl font-bold text-white mb-8">Committee</h3>
+          <h3 className="text-2xl font-bold mb-8" style={{ color: '#F4D35E' }}>Committee</h3>
           <div className="flex flex-wrap gap-8 justify-center mb-16">
             {['Wenhe', 'Kai-shan', 'Ryan', 'Lewis', 'George', 'William', 'Ahmed', 'Henry'].map((name) => (
-              <div key={name} className="p-6 border border-white/20 bg-white/10 sm:w-64 rounded">
+              <div key={name} className="p-6 border bg-white/5 hover:bg-white/10 transition-colors sm:w-64 rounded">
                 <p className="text-xl font-bold text-white">{name}</p>
               </div>
             ))}
           </div>
 
           {/* Faculty Supervisors */}
-          <h3 className="text-2xl font-bold text-white mb-8">Faculty Supervisors</h3>
+          <h3 className="text-2xl font-bold mb-8" style={{ color: '#F4D35E' }}>Faculty Supervisors</h3>
           <div className="flex flex-col sm:flex-row gap-8 justify-center">
             {['Florian Carle', 'Kimberly Nuzzo'].map((name) => (
-              <div key={name} className="p-6 border border-white/20 bg-white/10 sm:w-64 rounded">
+              <div key={name} className="p-6 border bg-white/5 hover:bg-white/10 transition-colors sm:w-64 rounded">
                 <p className="text-xl font-bold text-white">{name}</p>
               </div>
             ))}
@@ -272,10 +289,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Gradient divider — red accent */}
+      <div className="h-[2px]" style={{ background: 'linear-gradient(90deg, transparent, #ED2E0730, #EC893240, #ED2E0730, transparent)' }} />
+
       {/* Archive */}
-      <section id="archive" className="scroll-mt-20 py-32 px-6 lg:px-12 border-t border-white/20">
+      <section id="archive" className="scroll-mt-20 py-32 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center font-serif text-white">Archive</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center font-serif" style={{ color: '#FDFAEC' }}>Archive</h2>
           <div className="space-y-0">
             <Link href="/2025" className="flex items-center justify-between py-12 border-b border-white/20 group">
               <div>

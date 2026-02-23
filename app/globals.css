@@ -171,3 +171,65 @@ body {
     transform: translateX(-50%);
   }
 }
+
+/* Bulldog float */
+@keyframes gentleFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Shooting star */
+@keyframes shootingStar {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(500px);
+  }
+}
+
+
+/* Particle animations */
+@keyframes particleFloat {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(var(--drift-x, 20px), var(--drift-y, -20px));
+  }
+}
+
+@keyframes particlePulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: scale(1.8);
+    opacity: 1;
+  }
+}

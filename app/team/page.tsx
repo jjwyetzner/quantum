@@ -25,6 +25,14 @@ export default function Team() {
       <section className="pt-32 pb-20 px-6 lg:px-12 border-b border-yale-navy/20">
         <div className="max-w-7xl mx-auto">
           <p className="text-sm text-slate-500 tracking-[0.2em] uppercase mb-6">The People</p>
+          <div className="max-w-3xl mb-12">
+            <p className="text-lg text-slate-700 leading-relaxed mb-4">
+              The YQuantum Committee is a student-led group of Yale undergraduates behind Yale’s flagship quantum computing hackathon. By partnering with top researchers and industry leaders, we create opportunities for students to explore and shape the future of quantum technology.
+            </p>
+            <p className="text-sm text-slate-500 italic leading-relaxed">
+              Disclaimer: This event and website are organized and operated by the YQuantum Team. For any questions, please contact us using the information provided below.
+            </p>
+          </div>
           <h1 className="text-5xl md:text-7xl font-bold font-serif text-yale-navy">Team</h1>
         </div>
       </section>

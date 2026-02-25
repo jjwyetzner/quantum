@@ -214,9 +214,33 @@ export default function Home() {
 
       {/* Sponsors */}
       <section id="sponsors" className="scroll-mt-20 py-32 px-6 lg:px-12">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 font-serif" style={{ color: '#FDFAEC' }}>Sponsors</h2>
-          <p className="text-xl text-white/70 mb-6">Sponsors and challenges to be announced soon!</p>
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-16 font-serif" style={{ color: '#FDFAEC' }}>Sponsors</h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            {[
+              '68f0ebd188cd131ca766f642_quera-logo.png',
+              'Amazon_Web_Services-Logo.wine.png',
+              'LTIMindtree_Linear_2-1-LT-Blue.png.webp',
+              'State-street-logo-final.svg.png',
+              'image-22-1024x268.png',
+              'image001.png',
+              'quantinuum-logo_horizontal_black.png',
+              'rtrc-facility-logo-300x252.jpg'
+            ].map((logo) => (
+              <div key={logo} className="bg-white p-6 rounded-lg flex items-center justify-center transition-all duration-300 h-32 group hover:shadow-lg hover:scale-105">
+                <Image
+                  src={`/assets/2026/${logo}`}
+                  alt="Sponsor Logo"
+                  width={200}
+                  height={100}
+                  className="max-h-full w-auto object-contain transition-transform group-hover:scale-110"
+                />
+              </div>
+            ))}
+          </div>
+
+          <p className="text-xl text-white/70 mb-6">More sponsors and challenges to be announced soon!</p>
           <p className="text-lg text-white/60">
             Interested in sponsoring? Reach out to{' '}
             <a href="mailto:jeffrey.wei@yale.edu" className="text-sky-300 hover:underline">jeffrey.wei@yale.edu</a>
@@ -255,6 +279,14 @@ export default function Home() {
       {/* Team */}
       <section id="team" className="scroll-mt-20 py-32 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto mb-16 text-left">
+            <p className="text-lg text-white/80 leading-relaxed mb-4">
+              The YQuantum Committee is a student-led group of Yale undergraduates behind Yale’s flagship quantum computing hackathon. By partnering with top researchers and industry leaders, we create opportunities for students to explore and shape the future of quantum technology.
+            </p>
+            <p className="text-sm text-white/60 italic leading-relaxed">
+              Disclaimer: This event and website are organized and operated by the YQuantum Team. For any questions, please contact us using the information provided below.
+            </p>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-16 font-serif" style={{ color: '#FDFAEC' }}>Team</h2>
 
           {/* Co-Directors */}

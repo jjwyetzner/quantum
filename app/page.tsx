@@ -219,24 +219,32 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
             {[
-              '68f0ebd188cd131ca766f642_quera-logo.png',
-              'Amazon_Web_Services-Logo.wine.png',
-              'LTIMindtree_Linear_2-1-LT-Blue.png.webp',
-              'State-street-logo-final.svg.png',
-              'image-22-1024x268.png',
-              'image001.png',
-              'quantinuum-logo_horizontal_black.png',
-              'rtrc-facility-logo-300x252.jpg'
-            ].map((logo) => (
-              <div key={logo} className="bg-white p-6 rounded-lg flex items-center justify-center transition-all duration-300 h-32 group hover:shadow-lg hover:scale-105">
+              { logo: '68f0ebd188cd131ca766f642_quera-logo.png', href: 'https://www.quera.com/' },
+              { logo: 'Amazon_Web_Services-Logo.wine.png', href: 'https://aws.amazon.com/' },
+              { logo: 'LTIMindtree_Linear_2-1-LT-Blue.png.webp', href: 'https://www.ltm.com/' },
+              { logo: 'State-street-logo-final.svg.png', href: 'https://www.statestreet.com/us/en' },
+              { logo: 'image-22-1024x268.png', href: 'https://alice-bob.com/' },
+              { logo: 'image001.png', href: 'https://www.quantumct.org/' },
+              { logo: 'quantinuum-logo_horizontal_black.png', href: 'https://www.quantinuum.com/' },
+              { logo: 'rtrc-facility-logo-300x252.jpg', href: 'https://www.rtx.com/who-we-are/we-are-rtx/transformative-technologies/rtrc' },
+              { logo: 'YQI-logo_YQI-cirle+name-500x499.png', href: 'https://quantuminstitute.yale.edu/' },
+              { logo: 'Yale-Ventures-Logo_Two-Blues-Stacked_1.png', href: 'https://ventures.yale.edu/' },
+            ].map(({ logo, href }) => (
+              <a
+                key={logo}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white p-6 rounded-lg flex items-center justify-center transition-all duration-300 h-32 hover:shadow-xl hover:scale-105 cursor-pointer"
+              >
                 <Image
                   src={`/assets/2026/${logo}`}
                   alt="Sponsor Logo"
                   width={200}
                   height={100}
-                  className="max-h-full w-auto object-contain transition-transform group-hover:scale-110"
+                  className="max-h-full w-auto object-contain"
                 />
-              </div>
+              </a>
             ))}
           </div>
 
@@ -277,14 +285,11 @@ export default function Home() {
       <div className="h-[2px]" style={{ background: 'linear-gradient(90deg, transparent, #EC893240, #ED2E0730, #EC893240, transparent)' }} />
 
       {/* Team */}
-      <section id="team" className="scroll-mt-20 py-32 px-6 lg:px-12">
+      <section id="team" className="scroll-mt-20 pt-16 pb-32 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <div className="max-w-3xl mx-auto mb-16 text-left">
-            <p className="text-lg text-white/80 leading-relaxed mb-4">
-              The YQuantum Committee is a student-led group of Yale undergraduates behind Yale’s flagship quantum computing hackathon. By partnering with top researchers and industry leaders, we create opportunities for students to explore and shape the future of quantum technology.
-            </p>
-            <p className="text-sm text-white/60 italic leading-relaxed">
-              Disclaimer: This event and website are organized and operated by the YQuantum Team. For any questions, please contact us using the information provided below.
+            <p className="text-lg text-white/80 leading-relaxed">
+              The YQuantum Committee is a student-led group of Yale undergraduates behind Yale's flagship quantum computing hackathon. By partnering with top researchers and industry leaders, we create opportunities for students to explore and shape the future of quantum technology.
             </p>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-16 font-serif" style={{ color: '#FDFAEC' }}>Team</h2>
@@ -381,6 +386,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </main>
+    </main >
   )
 }

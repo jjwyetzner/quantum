@@ -141,7 +141,7 @@ export default function Home() {
             <p><strong className="text-white">When:</strong> April 4th-5th, 2026</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://forms.gle/e2vDg3WMgXuehXzU6" target="_blank" rel="noopener noreferrer" className="btn-primary">REGISTER NOW</a>
+            <a href="https://forms.gle/e2vDg3WMgXuehXzU6" target="_blank" rel="noopener noreferrer" className="btn-primary">APPLY NOW</a>
           </div>
           <div className="mt-8 flex gap-6 justify-center text-white">
             <div className="text-center">

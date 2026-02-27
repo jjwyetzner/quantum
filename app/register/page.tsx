@@ -41,7 +41,7 @@ export default function Register() {
             rel="noopener noreferrer"
             className="btn-primary text-lg px-12 py-5 inline-block"
           >
-            REGISTER NOW
+            APPLY NOW
           </a>
         </div>
       </section>

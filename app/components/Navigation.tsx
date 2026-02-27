@@ -46,7 +46,7 @@ export default function Navigation() {
           <div className="hidden md:flex items-center gap-10">
             <Link href="/team" className="text-sm text-white/80 hover:text-white transition-colors">TEAM</Link>
             <Link href="/archive" className="text-sm text-white/80 hover:text-white transition-colors">ARCHIVE</Link>
-            <a href="https://forms.gle/e2vDg3WMgXuehXzU6" target="_blank" rel="noopener noreferrer" className="btn-primary">REGISTRATION</a>
+            <a href="https://forms.gle/e2vDg3WMgXuehXzU6" target="_blank" rel="noopener noreferrer" className="btn-primary">APPLY</a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -71,7 +71,7 @@ export default function Navigation() {
           <div className="flex flex-col gap-6 text-white">
             <Link href="/team" className="text-lg" onClick={() => setMenuOpen(false)}>TEAM</Link>
             <Link href="/archive" className="text-lg" onClick={() => setMenuOpen(false)}>ARCHIVE</Link>
-            <a href="https://forms.gle/e2vDg3WMgXuehXzU6" target="_blank" rel="noopener noreferrer" className="btn-primary text-center mt-4" onClick={() => setMenuOpen(false)}>REGISTRATION</a>
+            <a href="https://forms.gle/e2vDg3WMgXuehXzU6" target="_blank" rel="noopener noreferrer" className="btn-primary text-center mt-4" onClick={() => setMenuOpen(false)}>APPLY</a>
           </div>
         </div>
       )}

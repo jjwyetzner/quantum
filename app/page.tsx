@@ -57,6 +57,8 @@ export default function Home() {
     { q: 'Is there a registration fee?', a: 'No, participation in YQuantum is completely free! We cover meals, swag, and provide access to quantum computing resources for all participants.' },
     { q: 'What should I bring?', a: "Bring your laptop, charger, student ID, and enthusiasm for quantum computing! We'll provide everything else including meals, snacks, and access to quantum computing resources." },
     { q: 'Do I need prior quantum computing experience?', a: "No! YQuantum welcomes participants of all experience levels. We'll have workshops and mentors available to help you get started with quantum computing." },
+    { q: 'Will travel reimbursements be covered by YQuantum?', a: 'No, unfortunately we cannot cover travel reimbursements for candidates.' },
+    { q: 'Where should I stay the night during the event?', a: 'Candidates are encouraged to stay within Yale facilities overnight so please bring spare clothes/items that will allow yourself to be comfortable!' },
   ]
 
   const navLinks = [
@@ -93,7 +95,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="btn-primary"
               >
-                REGISTER
+                APPLY
               </a>
             </div>
             <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden text-white p-2">
@@ -122,7 +124,7 @@ export default function Home() {
                 className="btn-primary text-center mt-4"
                 onClick={() => setMenuOpen(false)}
               >
-                REGISTER
+                APPLY
               </a>
             </div>
           </div>
@@ -227,9 +229,10 @@ export default function Home() {
               { logo: 'image001.png', href: 'https://www.quantumct.org/' },
               { logo: 'quantinuum-logo_horizontal_black.png', href: 'https://www.quantinuum.com/' },
               { logo: 'rtrc-facility-logo-300x252.jpg', href: 'https://www.rtx.com/who-we-are/we-are-rtx/transformative-technologies/rtrc' },
-              { logo: 'YQI-logo_YQI-cirle+name-500x499.png', href: 'https://quantuminstitute.yale.edu/' },
+              { logo: 'YQI-logo_YQI-cirle+name-500x499.png', href: 'https://quantuminstitute.yale.edu/', big: true },
               { logo: 'Yale-Ventures-Logo_Two-Blues-Stacked_1.png', href: 'https://ventures.yale.edu/' },
-            ].map(({ logo, href }) => (
+              { logo: 'bluequbit.jpg', href: 'https://www.bluequbit.io/', big: true },
+            ].map(({ logo, href, big }) => (
               <a
                 key={logo}
                 href={href}
@@ -242,7 +245,7 @@ export default function Home() {
                   alt="Sponsor Logo"
                   width={200}
                   height={100}
-                  className="max-h-full w-auto object-contain"
+                  className={`w-auto object-contain ${big ? 'max-h-full scale-125' : 'max-h-full'}`}
                 />
               </a>
             ))}

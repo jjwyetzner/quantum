@@ -37,6 +37,14 @@ export default function FAQs() {
     {
       q: 'Do I need prior quantum computing experience?',
       a: 'No! YQuantum welcomes participants of all experience levels. We\'ll have workshops and mentors available to help you get started with quantum computing.'
+    },
+    {
+      q: 'Will travel reimbursements be covered by YQuantum?',
+      a: 'No, unfortunately we cannot cover travel reimbursements for candidates.'
+    },
+    {
+      q: 'Where should I stay the night during the event?',
+      a: 'Candidates are encouraged to stay within Yale facilities overnight so please bring spare clothes/items that will allow yourself to be comfortable!'
     }
   ]
 

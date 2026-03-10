@@ -45,6 +45,10 @@ export default function FAQs() {
     {
       q: 'Where should I stay the night during the event?',
       a: 'Candidates are encouraged to stay within Yale facilities overnight so please bring spare clothes/items that will allow yourself to be comfortable!'
+    },
+    {
+      q: 'Will there be a virtual component?',
+      a: 'Unfortunately, there will be no virtual component this year. YQuantum is an in-person only event.'
     }
   ]
 

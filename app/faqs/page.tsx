@@ -48,7 +48,8 @@ export default function FAQs() {
     },
     {
       q: 'Will there be a virtual component?',
-      a: 'Unfortunately, there will be no virtual component this year. YQuantum is an in-person only event.'
+      a: 'Unfortunately, there will be no virtual component this year. YQuantum is an in-person only event.',
+      highlight: true
     }
   ]
 
@@ -71,15 +72,23 @@ export default function FAQs() {
       <section className="py-20 px-6 lg:px-12">
         <div className="max-w-3xl mx-auto">
           <div className="space-y-0">
-            {faqs.map((faq, i) => (
-              <details key={i} className="group border-b border-yale-navy/20">
-                <summary className="py-6 cursor-pointer flex items-center justify-between text-lg font-medium list-none text-yale-navy">
+            {faqs.map((faq: { q: string; a: string; highlight?: boolean }, i) => (
+              <details
+                key={i}
+                className={`group border-b ${faq.highlight
+                    ? 'border-yale-blue/40 border-l-2 border-l-yale-blue pl-4'
+                    : 'border-yale-navy/20'
+                  }`}
+              >
+                <summary className={`py-6 cursor-pointer flex items-center justify-between text-lg list-none ${faq.highlight ? 'font-semibold text-yale-blue' : 'font-medium text-yale-navy'
+                  }`}>
                   {faq.q}
                   <svg className="w-5 h-5 text-slate-400 group-open:rotate-45 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
                   </svg>
                 </summary>
-                <p className="pb-6 text-slate-700 leading-relaxed">{faq.a}</p>
+                <p className={`pb-6 leading-relaxed ${faq.highlight ? 'text-yale-blue/80 font-medium' : 'text-slate-700'
+                  }`}>{faq.a}</p>
               </details>
             ))}
           </div>

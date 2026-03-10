@@ -59,6 +59,7 @@ export default function Home() {
     { q: 'Do I need prior quantum computing experience?', a: "No! YQuantum welcomes participants of all experience levels. We'll have workshops and mentors available to help you get started with quantum computing." },
     { q: 'Will travel reimbursements be covered by YQuantum?', a: 'No, unfortunately we cannot cover travel reimbursements for candidates.' },
     { q: 'Where should I stay the night during the event?', a: 'Candidates are encouraged to stay within Yale facilities overnight so please bring spare clothes/items that will allow yourself to be comfortable!' },
+    { q: 'Will there be a virtual component?', a: 'Unfortunately, there will be no virtual component this year. YQuantum is an in-person only event.', highlight: true },
   ]
 
   const navLinks = [
@@ -232,6 +233,7 @@ export default function Home() {
               { logo: 'YQI-logo_YQI-cirle+name-500x499.png', href: 'https://quantuminstitute.yale.edu/', big: true },
               { logo: 'Yale-Ventures-Logo_Two-Blues-Stacked_1.png', href: 'https://ventures.yale.edu/' },
               { logo: 'bluequbit.jpg', href: 'https://www.bluequbit.io/', big: true },
+              { logo: 'qbraid.png', href: 'https://qbraid.com/' },
             ].map(({ logo, href, big }) => (
               <a
                 key={logo}
@@ -269,15 +271,24 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center font-serif" style={{ color: '#FDFAEC' }}>FAQs</h2>
           <div className="space-y-0">
-            {faqs.map((faq, i) => (
-              <details key={i} className="group border-b border-white/10" style={{ borderImage: 'linear-gradient(90deg, transparent, rgba(244,211,94,0.2), transparent) 1' }}>
-                <summary className="py-6 cursor-pointer flex items-center justify-between text-lg font-medium list-none text-white">
+            {faqs.map((faq: { q: string; a: string; highlight?: boolean }, i) => (
+              <details
+                key={i}
+                className={`group border-b ${faq.highlight
+                  ? 'border-amber-400/30 pl-3 border-l-2 border-l-amber-400/60'
+                  : 'border-white/10'
+                  }`}
+                style={faq.highlight ? {} : { borderImage: 'linear-gradient(90deg, transparent, rgba(244,211,94,0.2), transparent) 1' }}
+              >
+                <summary className={`py-6 cursor-pointer flex items-center justify-between text-lg list-none ${faq.highlight ? 'font-semibold text-amber-200' : 'font-medium text-white'
+                  }`}>
                   {faq.q}
                   <svg className="w-5 h-5 text-white/40 group-open:rotate-45 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
                   </svg>
                 </summary>
-                <p className="pb-6 text-white/70 leading-relaxed">{faq.a}</p>
+                <p className={`pb-6 leading-relaxed ${faq.highlight ? 'text-amber-100/80 font-medium' : 'text-white/70'
+                  }`}>{faq.a}</p>
               </details>
             ))}
           </div>

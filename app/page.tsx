@@ -206,9 +206,59 @@ export default function Home() {
 
       {/* Schedule */}
       <section id="schedule" className="scroll-mt-20 py-32 px-6 lg:px-12">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 font-serif" style={{ color: '#FDFAEC' }}>Schedule</h2>
-          <p className="text-xl text-white/70">Coming soon!</p>
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center font-serif" style={{ color: '#FDFAEC' }}>Schedule</h2>
+
+          {/* Saturday */}
+          <div className="mb-12">
+            <div className="flex items-center gap-4 mb-6">
+              <span className="text-xs uppercase tracking-widest font-semibold" style={{ color: '#F4D35E' }}>Saturday</span>
+              <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, #F4D35E40, transparent)' }} />
+            </div>
+            <div className="space-y-0 border-l border-white/10 ml-2 pl-6">
+              {[
+                { time: '8:00 AM', event: 'Registration and Breakfast' },
+                { time: '9:00 AM', event: 'Sponsor Workshops' },
+                { time: '10:30 AM', event: 'Opening Ceremony' },
+                { time: '10:45 AM', event: 'Keynote Speaker' },
+                { time: '11:45 AM', event: 'Challenge Announcements' },
+                { time: '12:00 PM', event: 'Hackathon Begins' },
+                { time: '1:00 PM', event: 'Lunch' },
+                { time: '7:00 PM', event: 'Dinner' },
+              ].map(({ time, event }) => (
+                <div key={time + event} className="flex items-baseline gap-6 py-3 group">
+                  <span className="text-sm font-mono text-white/40 w-24 shrink-0 group-hover:text-white/60 transition-colors">{time}</span>
+                  <span className="text-base text-white/85 group-hover:text-white transition-colors">{event}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Sunday */}
+          <div>
+            <div className="flex items-center gap-4 mb-6">
+              <span className="text-xs uppercase tracking-widest font-semibold" style={{ color: '#F4D35E' }}>Sunday</span>
+              <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, #F4D35E40, transparent)' }} />
+            </div>
+            <div className="space-y-0 border-l border-white/10 ml-2 pl-6">
+              {[
+                { time: '12:00 AM', event: 'Midnight Snacks', highlight: false },
+                { time: '8:00 AM', event: 'Breakfast', highlight: true },
+                { time: '12:00 PM', event: 'Hackathon Ends | Presentations Begin', highlight: false },
+                { time: '1:00 PM', event: 'Presentation Ends | Lunch', highlight: false },
+                { time: '2:00 PM', event: 'Keynote Speaker', highlight: false },
+                { time: '3:00 PM', event: 'Award Ceremony', highlight: false },
+                { time: '3:30 PM', event: 'Closing Remarks', highlight: false },
+              ].map(({ time, event, highlight }) => (
+                <div key={time + event} className="flex items-baseline gap-6 py-3 group">
+                  <span className={`text-sm font-mono w-24 shrink-0 transition-colors ${highlight ? 'text-amber-300' : 'text-white/40 group-hover:text-white/60'}`}>{time}</span>
+                  <span className={`text-base transition-colors ${highlight ? 'text-amber-300 font-semibold' : 'text-white/85 group-hover:text-white'}`}>{event}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="mt-10 text-sm text-white/40 text-center italic">* Schedule is tentative and subject to change.</p>
         </div>
       </section>
 

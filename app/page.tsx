@@ -243,7 +243,7 @@ export default function Home() {
             <div className="space-y-0 border-l border-white/10 ml-2 pl-6">
               {[
                 { time: '12:00 AM', event: 'Midnight Snacks', highlight: false },
-                { time: '8:00 AM', event: 'Breakfast', highlight: true },
+                { time: '8:00 AM', event: 'Breakfast', highlight: false },
                 { time: '12:00 PM', event: 'Hackathon Ends | Presentations Begin', highlight: false },
                 { time: '1:00 PM', event: 'Presentation Ends | Lunch', highlight: false },
                 { time: '2:00 PM', event: 'Keynote Speaker', highlight: false },

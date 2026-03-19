@@ -284,6 +284,8 @@ export default function Home() {
               { logo: 'Yale-Ventures-Logo_Two-Blues-Stacked_1.png', href: 'https://ventures.yale.edu/' },
               { logo: 'bluequbit.jpg', href: 'https://www.bluequbit.io/', big: true },
               { logo: 'qbraid.png', href: 'https://qbraid.com/' },
+              { logo: 'image.png', href: 'https://www.thehartford.com/' },
+              { logo: 'Capgemini_201x_logo.svg', href: 'https://www.capgemini.com/' },
             ].map(({ logo, href, big }) => (
               <a
                 key={logo}

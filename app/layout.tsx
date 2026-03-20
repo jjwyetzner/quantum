@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'YQuantum 2026',
   description: 'YQuantum is Yale\'s premier quantum computing hackathon. Program on quantum computers. Design the solutions of tomorrow.',
   keywords: 'quantum computing, hackathon, Yale, YQI, quantum algorithms, quantum hardware',
+  icons: {
+    icon: '/logo.png',
+  },
 }
 
 export default function RootLayout({

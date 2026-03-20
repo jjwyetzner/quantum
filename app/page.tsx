@@ -272,20 +272,20 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
             {[
-              { logo: '68f0ebd188cd131ca766f642_quera-logo.png', href: 'https://www.quera.com/' },
-              { logo: 'Amazon_Web_Services-Logo.wine.png', href: 'https://aws.amazon.com/' },
-              { logo: 'LTIMindtree_Linear_2-1-LT-Blue.png.webp', href: 'https://www.ltm.com/' },
-              { logo: 'State-street-logo-final.svg.png', href: 'https://www.statestreet.com/us/en' },
               { logo: 'image-22-1024x268.png', href: 'https://alice-bob.com/' },
-              { logo: 'image001.png', href: 'https://www.quantumct.org/' },
+              { logo: 'Amazon_Web_Services-Logo.wine.png', href: 'https://aws.amazon.com/' },
+              { logo: 'bluequbit.jpg', href: 'https://www.bluequbit.io/', big: true },
+              { logo: 'Capgemini_201x_logo.svg', href: 'https://www.capgemini.com/' },
+              { logo: 'LTIMindtree_Linear_2-1-LT-Blue.png.webp', href: 'https://www.ltm.com/' },
+              { logo: 'qbraid.png', href: 'https://qbraid.com/' },
               { logo: 'quantinuum-logo_horizontal_black.png', href: 'https://www.quantinuum.com/' },
+              { logo: 'image001.png', href: 'https://www.quantumct.org/' },
+              { logo: '68f0ebd188cd131ca766f642_quera-logo.png', href: 'https://www.quera.com/' },
               { logo: 'rtrc-facility-logo-300x252.jpg', href: 'https://www.rtx.com/who-we-are/we-are-rtx/transformative-technologies/rtrc' },
+              { logo: 'State-street-logo-final.svg.png', href: 'https://www.statestreet.com/us/en' },
+              { logo: 'image.png', href: 'https://www.thehartford.com/' },
               { logo: 'YQI-logo_YQI-cirle+name-500x499.png', href: 'https://quantuminstitute.yale.edu/', big: true },
               { logo: 'Yale-Ventures-Logo_Two-Blues-Stacked_1.png', href: 'https://ventures.yale.edu/' },
-              { logo: 'bluequbit.jpg', href: 'https://www.bluequbit.io/', big: true },
-              { logo: 'qbraid.png', href: 'https://qbraid.com/' },
-              { logo: 'image.png', href: 'https://www.thehartford.com/' },
-              { logo: 'Capgemini_201x_logo.svg', href: 'https://www.capgemini.com/' },
             ].map(({ logo, href, big }) => (
               <a
                 key={logo}
@@ -305,12 +305,9 @@ export default function Home() {
             ))}
           </div>
 
-          <p className="text-xl text-white/70 mb-6">More sponsors and challenges to be announced soon!</p>
           <p className="text-lg text-white/60">
             Interested in sponsoring? Reach out to{' '}
-            <a href="mailto:jeffrey.wei@yale.edu" className="text-sky-300 hover:underline">jeffrey.wei@yale.edu</a>
-            {' '}and{' '}
-            <a href="mailto:florian.carle@yale.edu" className="text-sky-300 hover:underline">florian.carle@yale.edu</a>
+            <a href="mailto:yquantum2026@gmail.com" className="text-sky-300 hover:underline">yquantum2026@gmail.com</a>
           </p>
         </div>
       </section>
@@ -445,9 +442,7 @@ export default function Home() {
             <p className="text-sm text-white/60">Copyright Yale Quantum Institute © 2026. All Rights Reserved.</p>
             <p className="text-sm text-white/60">
               Contact:{' '}
-              <a href="mailto:jeffrey.wei@yale.edu" className="hover:text-white transition-colors">jeffrey.wei@yale.edu</a>
-              {', '}
-              <a href="mailto:florian.carle@yale.edu" className="hover:text-white transition-colors">florian.carle@yale.edu</a>
+              <a href="mailto:yquantum2026@gmail.com" className="hover:text-white transition-colors">yquantum2026@gmail.com</a>
             </p>
           </div>
         </div>

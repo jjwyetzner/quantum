@@ -270,7 +270,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 font-serif" style={{ color: '#FDFAEC' }}>Sponsors</h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { logo: 'image-22-1024x268.png', href: 'https://alice-bob.com/' },
               { logo: 'Amazon_Web_Services-Logo.wine.png', href: 'https://aws.amazon.com/' },
@@ -305,10 +305,6 @@ export default function Home() {
             ))}
           </div>
 
-          <p className="text-lg text-white/60">
-            Interested in sponsoring? Reach out to{' '}
-            <a href="mailto:yquantum2026@gmail.com" className="text-sky-300 hover:underline">yquantum2026@gmail.com</a>
-          </p>
         </div>
       </section>
 

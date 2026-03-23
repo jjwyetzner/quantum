@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, type ReactNode } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import HackathonHighlights from '@/components/HackathonHighlights'
@@ -216,19 +216,37 @@ export default function Home() {
               <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, #F4D35E40, transparent)' }} />
             </div>
             <div className="space-y-0 border-l border-white/10 ml-2 pl-6">
-              {[
+              {([
                 { time: '8:00 AM', event: 'Registration and Breakfast' },
                 { time: '9:00 AM', event: 'Sponsor Workshops' },
                 { time: '10:30 AM', event: 'Opening Ceremony' },
-                { time: '10:45 AM', event: 'Keynote Speaker' },
+                {
+                  time: '10:45 AM',
+                  event: 'Keynote Speaker',
+                  content: (
+                    <span className="text-base text-white/85 group-hover:text-white transition-colors">
+                      Keynote Speaker —{' '}
+                      <a
+                        href="https://girvin.sites.yale.edu/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-sky-400 hover:text-sky-300 hover:underline"
+                      >
+                        Steve Girvin
+                      </a>
+                      <br />
+                      <span className="text-sm text-white/60 italic">&ldquo;The Second Quantum Revolution and the 2025 Nobel Prize in Physics&rdquo;</span>
+                    </span>
+                  ),
+                },
                 { time: '11:45 AM', event: 'Challenge Announcements' },
                 { time: '12:00 PM', event: 'Hackathon Begins' },
                 { time: '1:00 PM', event: 'Lunch' },
                 { time: '7:00 PM', event: 'Dinner' },
-              ].map(({ time, event }) => (
+              ] as { time: string; event: string; content?: ReactNode }[]).map(({ time, event, content }) => (
                 <div key={time + event} className="flex items-baseline gap-6 py-3 group">
                   <span className="text-sm font-mono text-white/40 w-24 shrink-0 group-hover:text-white/60 transition-colors">{time}</span>
-                  <span className="text-base text-white/85 group-hover:text-white transition-colors">{event}</span>
+                  {content ?? <span className="text-base text-white/85 group-hover:text-white transition-colors">{event}</span>}
                 </div>
               ))}
             </div>
@@ -241,18 +259,35 @@ export default function Home() {
               <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, #F4D35E40, transparent)' }} />
             </div>
             <div className="space-y-0 border-l border-white/10 ml-2 pl-6">
-              {[
+              {([
                 { time: '12:00 AM', event: 'Midnight Snacks', highlight: false },
                 { time: '8:00 AM', event: 'Breakfast', highlight: false },
                 { time: '12:00 PM', event: 'Hackathon Ends | Presentations Begin', highlight: false },
                 { time: '1:00 PM', event: 'Presentation Ends | Lunch', highlight: false },
-                { time: '2:00 PM', event: 'Keynote Speaker', highlight: false },
+                {
+                  time: '2:00 PM',
+                  event: 'Q&A with Keynote Speaker',
+                  highlight: false,
+                  content: (
+                    <span className="text-base text-white/85 group-hover:text-white transition-colors">
+                      Q&amp;A with{' '}
+                      <a
+                        href="https://www.cs.utexas.edu/people/faculty-researchers/scott-aaronson"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-bold text-sky-400 hover:text-sky-300 hover:underline"
+                      >
+                        Scott Aaronson
+                      </a>
+                    </span>
+                  ),
+                },
                 { time: '3:00 PM', event: 'Award Ceremony', highlight: false },
                 { time: '3:30 PM', event: 'Closing Remarks', highlight: false },
-              ].map(({ time, event, highlight }) => (
+              ] as { time: string; event: string; highlight: boolean; content?: ReactNode }[]).map(({ time, event, highlight, content }) => (
                 <div key={time + event} className="flex items-baseline gap-6 py-3 group">
                   <span className={`text-sm font-mono w-24 shrink-0 transition-colors ${highlight ? 'text-amber-300' : 'text-white/40 group-hover:text-white/60'}`}>{time}</span>
-                  <span className={`text-base transition-colors ${highlight ? 'text-amber-300 font-semibold' : 'text-white/85 group-hover:text-white'}`}>{event}</span>
+                  {content ?? <span className={`text-base transition-colors ${highlight ? 'text-amber-300 font-semibold' : 'text-white/85 group-hover:text-white'}`}>{event}</span>}
                 </div>
               ))}
             </div>
@@ -285,6 +320,7 @@ export default function Home() {
               { logo: 'State-street-logo-final.svg.png', href: 'https://www.statestreet.com/us/en' },
               { logo: 'image.png', href: 'https://www.thehartford.com/' },
               { logo: 'YQI-logo_YQI-cirle+name-500x499.png', href: 'https://quantuminstitute.yale.edu/', big: true },
+              { logo: 'Travelers-logo.png', href: 'https://www.travelers.com/' },
               { logo: 'Yale-Ventures-Logo_Two-Blues-Stacked_1.png', href: 'https://ventures.yale.edu/' },
             ].map(({ logo, href, big }) => (
               <a

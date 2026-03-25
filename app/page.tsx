@@ -319,8 +319,8 @@ export default function Home() {
               { logo: 'rtrc-facility-logo-300x252.jpg', href: 'https://www.rtx.com/who-we-are/we-are-rtx/transformative-technologies/rtrc' },
               { logo: 'State-street-logo-final.svg.png', href: 'https://www.statestreet.com/us/en' },
               { logo: 'image.png', href: 'https://www.thehartford.com/' },
-              { logo: 'YQI-logo_YQI-cirle+name-500x499.png', href: 'https://quantuminstitute.yale.edu/', big: true },
               { logo: 'Travelers-logo.png', href: 'https://www.travelers.com/' },
+              { logo: 'YQI-logo_YQI-cirle+name-500x499.png', href: 'https://quantuminstitute.yale.edu/', big: true },
               { logo: 'Yale-Ventures-Logo_Two-Blues-Stacked_1.png', href: 'https://ventures.yale.edu/' },
             ].map(({ logo, href, big }) => (
               <a

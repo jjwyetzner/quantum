@@ -242,7 +242,7 @@ export default function Home() {
                 { time: '11:45 AM', event: 'Challenge Announcements' },
                 { time: '12:00 PM', event: 'Hackathon Begins' },
                 { time: '1:00 PM', event: 'Lunch' },
-                { time: '7:00 PM', event: 'Dinner' },
+                { time: '6:00 PM', event: 'Dinner' },
               ] as { time: string; event: string; content?: ReactNode }[]).map(({ time, event, content }) => (
                 <div key={time + event} className="flex items-baseline gap-6 py-3 group">
                   <span className="text-sm font-mono text-white/40 w-24 shrink-0 group-hover:text-white/60 transition-colors">{time}</span>

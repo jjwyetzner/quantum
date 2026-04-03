@@ -8,6 +8,8 @@ const nextConfig = {
       },
     ],
     unoptimized: true,
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
   },
 }
 

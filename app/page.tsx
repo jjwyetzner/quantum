@@ -218,7 +218,47 @@ export default function Home() {
             <div className="space-y-0 border-l border-white/10 ml-2 pl-6">
               {([
                 { time: '8:00 AM', event: 'Registration and Breakfast' },
-                { time: '9:00 AM', event: 'Sponsor Workshops' },
+                {
+                  time: '9:00 AM',
+                  event: 'Sponsor Workshops',
+                  content: (
+                    <div className="flex-1">
+                      <span className="text-base text-white font-semibold block mb-3">Sponsor Workshops</span>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm border-collapse">
+                          <thead>
+                            <tr>
+                              <th className="text-left py-2 pr-4 text-white/50 font-mono font-normal text-xs w-36">Time</th>
+                              <th className="text-center py-2 px-3 font-bold text-xs border border-yellow-400/30 bg-yellow-400/10" style={{ color: '#F4D35E' }}>KT 201</th>
+                              <th className="text-center py-2 px-3 font-bold text-xs border border-yellow-400/30 bg-yellow-400/10" style={{ color: '#F4D35E' }}>KT 203</th>
+                              <th className="text-center py-2 px-3 font-bold text-xs border border-yellow-400/30 bg-yellow-400/10" style={{ color: '#F4D35E' }}>KT 205</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="py-2.5 pr-4 font-mono text-xs align-middle" style={{ color: '#F4D35E' }}>9:00–9:30 AM</td>
+                              <td className="py-2.5 px-3 text-center text-sky-300 font-medium border border-white/15 bg-white/5">Alice &amp; Bob</td>
+                              <td className="py-2.5 px-3 text-center text-sky-300 font-medium border border-white/15 bg-white/5">QuEra</td>
+                              <td className="py-2.5 px-3 text-center text-white/25 border border-white/15">—</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2.5 pr-4 font-mono text-xs align-middle" style={{ color: '#F4D35E' }}>9:30–10:00 AM</td>
+                              <td className="py-2.5 px-3 text-center text-sky-300 font-medium border border-white/15 bg-white/5">The Hartford × Capgemini</td>
+                              <td className="py-2.5 px-3 text-center text-sky-300 font-medium border border-white/15 bg-white/5">Travelers × LTIMindTree × Quantinuum</td>
+                              <td className="py-2.5 px-3 text-center text-white/25 border border-white/15">—</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2.5 pr-4 font-mono text-xs align-middle" style={{ color: '#F4D35E' }}>10:00–10:30 AM</td>
+                              <td className="py-2.5 px-3 text-center text-sky-300 font-medium border border-white/15 bg-white/5">AWS × State Street</td>
+                              <td className="py-2.5 px-3 text-center text-sky-300 font-medium border border-white/15 bg-white/5">BlueQubit</td>
+                              <td className="py-2.5 px-3 text-center text-sky-300 font-medium border border-white/15 bg-white/5">Quantinuum</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  ),
+                },
                 { time: '10:30 AM', event: 'Opening Ceremony' },
                 {
                   time: '10:45 AM',
@@ -318,7 +358,7 @@ export default function Home() {
               { logo: '68f0ebd188cd131ca766f642_quera-logo.png', href: 'https://www.quera.com/' },
               { logo: 'rtrc-facility-logo-300x252.jpg', href: 'https://www.rtx.com/who-we-are/we-are-rtx/transformative-technologies/rtrc' },
               { logo: 'State-street-logo-final.svg.png', href: 'https://www.statestreet.com/us/en' },
-              { logo: 'image.png', href: 'https://www.thehartford.com/' },
+              { logo: 'The_Hartford_Financial_Services_Group_logo.svg', href: 'https://www.thehartford.com/' },
               { logo: 'Travelers-logo.png', href: 'https://www.travelers.com/' },
               { logo: 'YQI-logo_YQI-cirle+name-500x499.png', href: 'https://quantuminstitute.yale.edu/', big: true },
               { logo: 'Yale-Ventures-Logo_Two-Blues-Stacked_1.png', href: 'https://ventures.yale.edu/' },

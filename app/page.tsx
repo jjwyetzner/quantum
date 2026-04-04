@@ -223,35 +223,65 @@ export default function Home() {
                   event: 'Sponsor Workshops',
                   content: (
                     <div className="flex-1">
-                      <span className="text-base text-white font-semibold block mb-3">Sponsor Workshops</span>
+                      <span className="text-base text-white font-semibold block mb-2">Sponsor Workshops</span>
+                      <p className="text-xs text-amber-300/80 mb-3 flex items-center gap-1.5">
+                        <span>⚠</span>
+                        <span>Rooms updated to accommodate more participants</span>
+                      </p>
                       <div className="overflow-x-auto">
                         <table className="w-full text-sm border-collapse">
                           <thead>
                             <tr>
-                              <th className="text-left py-2 pr-4 text-white/50 font-mono font-normal text-xs w-36">Time</th>
-                              <th className="text-center py-2 px-3 font-bold text-xs border border-yellow-400/30 bg-yellow-400/10" style={{ color: '#F4D35E' }}>KT 201</th>
-                              <th className="text-center py-2 px-3 font-bold text-xs border border-yellow-400/30 bg-yellow-400/10" style={{ color: '#F4D35E' }}>KT 203</th>
-                              <th className="text-center py-2 px-3 font-bold text-xs border border-yellow-400/30 bg-yellow-400/10" style={{ color: '#F4D35E' }}>KT 205</th>
+                              <th className="text-left py-2 px-3 font-bold text-xs border border-yellow-400/30 bg-yellow-400/10 w-28" style={{ color: '#F4D35E' }}>Room</th>
+                              <th className="text-left py-2 px-3 font-bold text-xs border border-yellow-400/30 bg-yellow-400/10" style={{ color: '#F4D35E' }}>Sponsor</th>
                             </tr>
                           </thead>
                           <tbody>
+                            {/* 9:00–9:30 AM */}
                             <tr>
-                              <td className="py-2.5 pr-4 font-mono text-xs align-middle" style={{ color: '#F4D35E' }}>9:00–9:30 AM</td>
-                              <td className="py-2.5 px-3 text-center text-sky-300 font-medium border border-white/15 bg-white/5">Alice &amp; Bob</td>
-                              <td className="py-2.5 px-3 text-center text-sky-300 font-medium border border-white/15 bg-white/5">QuEra</td>
-                              <td className="py-2.5 px-3 text-center text-white/25 border border-white/15">—</td>
+                              <td colSpan={2} className="py-1.5 px-3 font-mono text-xs font-bold border border-yellow-400/20" style={{ background: 'rgba(244,211,94,0.08)', color: '#F4D35E' }}>
+                                🕘 9:00 – 9:30 AM
+                              </td>
                             </tr>
                             <tr>
-                              <td className="py-2.5 pr-4 font-mono text-xs align-middle" style={{ color: '#F4D35E' }}>9:30–10:00 AM</td>
-                              <td className="py-2.5 px-3 text-center text-sky-300 font-medium border border-white/15 bg-white/5">The Hartford × Capgemini</td>
-                              <td className="py-2.5 px-3 text-center text-sky-300 font-medium border border-white/15 bg-white/5">Travelers × LTIMindTree × Quantinuum</td>
-                              <td className="py-2.5 px-3 text-center text-white/25 border border-white/15">—</td>
+                              <td className="py-2 px-3 font-mono text-xs text-white/70 border border-white/10 bg-white/[0.03] pl-5">KT 201</td>
+                              <td className="py-2 px-3 text-sky-300 font-medium border border-white/10 bg-white/[0.03]">Alice &amp; Bob</td>
                             </tr>
                             <tr>
-                              <td className="py-2.5 pr-4 font-mono text-xs align-middle" style={{ color: '#F4D35E' }}>10:00–10:30 AM</td>
-                              <td className="py-2.5 px-3 text-center text-sky-300 font-medium border border-white/15 bg-white/5">AWS × State Street</td>
-                              <td className="py-2.5 px-3 text-center text-sky-300 font-medium border border-white/15 bg-white/5">BlueQubit</td>
-                              <td className="py-2.5 px-3 text-center text-sky-300 font-medium border border-white/15 bg-white/5">Quantinuum</td>
+                              <td className="py-2 px-3 font-mono text-xs text-white/70 border border-white/10 bg-white/[0.03] pl-5">KT 203</td>
+                              <td className="py-2 px-3 text-sky-300 font-medium border border-white/10 bg-white/[0.03]">QuEra</td>
+                            </tr>
+                            {/* 9:30–10:00 AM */}
+                            <tr>
+                              <td colSpan={2} className="py-1.5 px-3 font-mono text-xs font-bold border border-yellow-400/20 border-t-2" style={{ background: 'rgba(244,211,94,0.08)', color: '#F4D35E', borderTopColor: 'rgba(244,211,94,0.25)' }}>
+                                🕘 9:30 – 10:00 AM
+                              </td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 px-3 font-mono text-xs text-white/70 border border-white/10 bg-white/[0.03] pl-5">KT 205</td>
+                              <td className="py-2 px-3 text-sky-300 font-medium border border-white/10 bg-white/[0.03]">The Hartford × Capgemini</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 px-3 font-mono text-xs text-white/70 border border-white/10 bg-white/[0.03] pl-5">KT 207</td>
+                              <td className="py-2 px-3 text-sky-300 font-medium border border-white/10 bg-white/[0.03]">Travelers × LTIMindTree × Quantinuum</td>
+                            </tr>
+                            {/* 10:00–10:30 AM */}
+                            <tr>
+                              <td colSpan={2} className="py-1.5 px-3 font-mono text-xs font-bold border border-yellow-400/20 border-t-2" style={{ background: 'rgba(244,211,94,0.08)', color: '#F4D35E', borderTopColor: 'rgba(244,211,94,0.25)' }}>
+                                🕙 10:00 – 10:30 AM
+                              </td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 px-3 font-mono text-xs text-white/70 border border-white/10 bg-white/[0.03] pl-5">KT 205</td>
+                              <td className="py-2 px-3 text-sky-300 font-medium border border-white/10 bg-white/[0.03]">Quantinuum</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 px-3 font-mono text-xs text-white/70 border border-white/10 bg-white/[0.03] pl-5">KT 207</td>
+                              <td className="py-2 px-3 text-sky-300 font-medium border border-white/10 bg-white/[0.03]">AWS × State Street</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 px-3 font-mono text-xs text-white/70 border border-white/10 bg-white/[0.03] pl-5">KT 217</td>
+                              <td className="py-2 px-3 text-sky-300 font-medium border border-white/10 bg-white/[0.03]">BlueQubit</td>
                             </tr>
                           </tbody>
                         </table>
@@ -259,7 +289,18 @@ export default function Home() {
                     </div>
                   ),
                 },
-                { time: '10:30 AM', event: 'Opening Ceremony' },
+                {
+                  time: '10:30 AM',
+                  event: 'Opening Ceremony',
+                  content: (
+                    <span className="text-base text-white/85 group-hover:text-white transition-colors">
+                      Opening Ceremony
+                      <span className="block text-xs text-amber-300/70 italic mt-0.5">
+                        Team formation &amp; challenge preference form closes
+                      </span>
+                    </span>
+                  ),
+                },
                 {
                   time: '10:45 AM',
                   event: 'Keynote Speaker',
@@ -303,6 +344,42 @@ export default function Home() {
                 { time: '12:00 AM', event: 'Midnight Snacks', highlight: false },
                 { time: '8:00 AM', event: 'Breakfast', highlight: false },
                 { time: '12:00 PM', event: 'Hackathon Ends | Presentations Begin', highlight: false },
+                {
+                  time: '',
+                  event: 'Judging Rooms',
+                  highlight: false,
+                  content: (
+                    <div className="flex-1 py-1">
+                      <span className="text-base text-white font-semibold block mb-3">Judging Rooms</span>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-sm border-collapse">
+                          <thead>
+                            <tr>
+                              <th className="text-left py-2 px-3 font-bold text-xs border border-yellow-400/30 bg-yellow-400/10" style={{ color: '#F4D35E' }}>Judging Room</th>
+                              <th className="text-left py-2 px-3 font-bold text-xs border border-yellow-400/30 bg-yellow-400/10" style={{ color: '#F4D35E' }}>Sponsor</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {[
+                              { room: 'KT 201', sponsor: 'Alice & Bob' },
+                              { room: 'KT 203', sponsor: 'AWS × State Street' },
+                              { room: 'KT 205', sponsor: 'The Hartford × Capgemini' },
+                              { room: 'KT 207', sponsor: 'QuantumCT × RTRC × qBraid' },
+                              { room: 'KT 209', sponsor: 'Travelers × LTIMindTree × Quantinuum' },
+                              { room: 'KT 211', sponsor: 'QuEra' },
+                              { room: 'KT 217', sponsor: 'BlueQubit' },
+                            ].map(({ room, sponsor }) => (
+                              <tr key={room}>
+                                <td className="py-2 px-3 font-mono text-xs text-white/70 border border-white/15 bg-white/5">{room}</td>
+                                <td className="py-2 px-3 text-sky-300 font-medium border border-white/15 bg-white/5">{sponsor}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  ),
+                },
                 { time: '1:00 PM', event: 'Presentation Ends | Lunch', highlight: false },
                 {
                   time: '2:00 PM',

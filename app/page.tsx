@@ -428,7 +428,7 @@ export default function Home() {
               { logo: 'Amazon_Web_Services-Logo.wine.png', href: 'https://aws.amazon.com/' },
               { logo: 'bluequbit.jpg', href: 'https://www.bluequbit.io/', big: true },
               { logo: 'Capgemini_201x_logo.svg', href: 'https://www.capgemini.com/' },
-              { logo: 'LTIMindtree_Linear_2-1-LT-Blue.png.webp', href: 'https://www.ltm.com/' },
+              { logo: 'LTIMindtree_LTM_pink.jpg', href: 'https://www.ltm.com/', small: true },
               { logo: 'qbraid.png', href: 'https://qbraid.com/' },
               { logo: 'quantinuum-logo_horizontal_black.png', href: 'https://www.quantinuum.com/' },
               { logo: 'image001.png', href: 'https://www.quantumct.org/' },
@@ -439,7 +439,7 @@ export default function Home() {
               { logo: 'Travelers-logo.png', href: 'https://www.travelers.com/' },
               { logo: 'YQI-logo_YQI-cirle+name-500x499.png', href: 'https://quantuminstitute.yale.edu/', big: true },
               { logo: 'Yale-Ventures-Logo_Two-Blues-Stacked_1.png', href: 'https://ventures.yale.edu/' },
-            ].map(({ logo, href, big }) => (
+            ].map(({ logo, href, big, small }) => (
               <a
                 key={logo}
                 href={href}
@@ -452,7 +452,7 @@ export default function Home() {
                   alt="Sponsor Logo"
                   width={200}
                   height={100}
-                  className={`w-auto object-contain ${big ? 'max-h-full scale-125' : 'max-h-full'}`}
+                  className={`w-auto object-contain ${big ? 'max-h-full scale-125' : small ? 'max-h-full scale-50' : 'max-h-full'}`}
                 />
               </a>
             ))}
